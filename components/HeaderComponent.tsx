@@ -14,8 +14,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#000000'
     },
     logo: {
-        width: '100%',
-        height: 50
+        width: 170,
+        height: 50,
+        marginTop: 10,
+        resizeMode: 'contain'
     }
 });
   

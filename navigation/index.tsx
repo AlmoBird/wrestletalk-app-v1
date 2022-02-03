@@ -21,6 +21,7 @@ import TabFourScreen from '../screens/TabFourScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import HeaderComponent from '../components/HeaderComponent';
+import SubTabComponent from '../components/SubTabComponent';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -71,6 +72,7 @@ function BottomTabNavigator() {
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
           title: 'WrestleTalk',
           tabBarIcon: ({ color }) => <TabBarIcon name="align-left" color={color} />,
+          headerTitle: (props) => <SubTabComponent {...props} />
         })}
       />
       <BottomTab.Screen

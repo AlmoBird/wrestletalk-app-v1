@@ -1,23 +1,76 @@
-import React from "react";
-import { View, Image, Text, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { View, Image, Text, StyleSheet, TextInput, FlatList } from "react-native";
+import { Ionicons, Entypo } from '@expo/vector-icons'; 
+
+
 
 export default function HeaderComponent({ navigation }: any) {
+
+    const [showSearch, setShowSearch] = useState(false);
+    const [showSettings, setShowSettings] = useState(false);
+
     return (
-        <View>
+        <View style={styles.container}>
             <Image style={styles.logo} source={require('../assets/images/wrestletalk-logo.png')}></Image>
+
+            <View style={styles.logoContainer}>
+                {
+                    showSearch ? 
+                    <Entypo style={styles.settingsIcon} name="cross" size={24} color="white" onPress={() => setShowSearch(!showSearch)} /> : 
+                    <Ionicons style={styles.searchIcon} name="ios-search" size={24} color="white" onPress={() => setShowSearch(!showSearch)} />
+                }
+                <Entypo style={styles.settingsIcon} name="dots-three-vertical" size={24} color="white" onPress={() => setShowSettings(!showSettings)} />
+            </View>
+             
+            {showSearch ? <TextInput style={styles.searchInput} placeholder="Search WrestleTalk" autoFocus></TextInput> : null}
+            {
+                showSettings ? 
+                <View>
+
+                </View>
+                : 
+                null
+            }
+
         </View>
     );
 }
 
+
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#000000'
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        width: '100%',
+        left: -17,
+        paddingLeft: 20
+    },
+    logoContainer: {
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     logo: {
         width: 170,
         height: 50,
         marginVertical: 10,
         resizeMode: 'contain'
+    },
+    searchIcon: {
+        width: 40
+    },
+    settingsIcon: {
+        width: 40
+    },
+    searchInput: {
+        backgroundColor: '#fff',
+        position: 'absolute',
+        right: 100,
+        left: 20,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        fontSize: 18,
+        borderRadius: 3
     }
 });
   

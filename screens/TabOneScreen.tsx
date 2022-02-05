@@ -3,8 +3,6 @@ import { StyleSheet, ScrollView, ImageBackground, FlatList, TouchableOpacity } f
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 
-import SubTabComponent from '../components/SubTabComponent';
-
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
   const imageUrl = 'https://mediacloud.theweek.com/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1608148899/59267_article_full.jpg';
   const messages = ['Clothes Line', 'Dropkick'];

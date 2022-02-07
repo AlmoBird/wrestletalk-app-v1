@@ -82,8 +82,6 @@ const styles = StyleSheet.create({
     padding: 20,
     display: 'flex',
     overflow: 'scroll',
-    borderWidth: 3,
-    borderColor: 'red'
   },
   article: {
     borderRadius: 10,  

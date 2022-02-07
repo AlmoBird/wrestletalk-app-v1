@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from "react-native";
 export default function SubTabComponent({ navigation }: any) {
     return (
         <View style={styles.SubTabContainer}>
-            <Text style={styles.subTabLink}>Feature</Text>
+            <Text style={[styles.subTabLink, styles.subTabLinkActive]}>Feature</Text>
             <Text style={styles.subTabLink}>Latest News</Text>
             <Text style={styles.subTabLink}>Video</Text>
             <Text style={styles.subTabLink}>Audio</Text>
@@ -27,6 +27,11 @@ const styles = StyleSheet.create({
      },
      subTabLink: {
         textTransform: 'uppercase'
+     },
+     subTabLinkActive: {
+         borderBottomColor: '#777',
+         borderBottomWidth: 3,
+         paddingVertical: 15
      }
 });
   

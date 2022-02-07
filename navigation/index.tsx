@@ -14,7 +14,7 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
-import TabOneScreen from '../screens/TabOneScreen';
+import WrestleTalkScreen from '../screens/WrestleTalkScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import TabThreeScreen from '../screens/TabThreeScreen';
 import TabFourScreen from '../screens/TabFourScreen';
@@ -68,7 +68,7 @@ function BottomTabNavigator() {
       }}>
       <BottomTab.Screen
         name="TabOne"
-        component={TabOneScreen}
+        component={WrestleTalkScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
           title: 'WrestleTalk',
           tabBarIcon: ({ color }) => <TabBarIcon name="align-left" color={color} />,

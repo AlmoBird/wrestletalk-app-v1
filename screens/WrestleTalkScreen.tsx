@@ -74,6 +74,60 @@ export default function WrestleTalkScreen({ navigation }: RootTabScreenProps<'Ta
         </View>
       </View>
 
+      <View style={styles.articleSmall} >
+        <Image style={styles.articleSmall__Img} source={{
+          uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-3.jpg',
+        }}></Image>
+        <View style={styles.articleSmall__Details}>
+          <Text style={styles.articleSmall__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+        </View> 
+      </View>
+
+      <View style={styles.articleSmall} >
+        <Image style={styles.articleSmall__Img} source={{
+          uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-3.jpg',
+        }}></Image>
+        <View style={styles.articleSmall__Details}>
+          <Text style={styles.articleSmall__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+        </View> 
+      </View>
+
+      <View style={styles.articleSmall} >
+        <Image style={styles.articleSmall__Img} source={{
+          uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-3.jpg',
+        }}></Image>
+        <View style={styles.articleSmall__Details}>
+          <Text style={styles.articleSmall__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+        </View> 
+      </View>
+
+      <View style={styles.articleTiny} >
+        <Text style={styles.articleTiny__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+      </View>
+
+      <View style={styles.articleTiny} >
+        <Text style={styles.articleTiny__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+      </View>
+
+      <View style={styles.articleTiny} >
+        <Text style={styles.articleTiny__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+      </View>
+
+      <View style={styles.articleTiny} >
+        <Text style={styles.articleTiny__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+      </View>
+
+      <View style={styles.articleTiny} >
+        <Text style={styles.articleTiny__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+      </View>
+
+      <View style={styles.articleTiny} >
+        <Text style={styles.articleTiny__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+      </View>
+
+      <Text>&nbsp;</Text>
+      <Text>&nbsp;</Text>
+
     </ScrollView>
   )
 }
@@ -88,13 +142,13 @@ const styles = StyleSheet.create({
     overflow: 'scroll',
   },
   articleLarge: {
-    borderRadius: 10,  
+    borderRadius: 7,  
     height: 230,
     marginBottom: 20
   },
   articleLarge__Img: {
     height: '100%',
-    borderRadius: 10,
+    borderRadius: 7,
     resizeMode: 'cover'
   },
   articleLarge__Details: {
@@ -103,7 +157,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 0,
     width: '100%',
-    borderRadius: 10
+    borderRadius: 7
   },
   articleLarge__title: {
     color: "white",
@@ -118,14 +172,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF'
   },
   articleHalf: {
-    borderRadius: 10,  
+    borderRadius: 7,  
     width: '48%',
     height: 200,
     marginBottom: 20
   },
   articleHalf__Img: {
     height: '100%',
-    borderRadius: 10,
+    borderRadius: 7,
     resizeMode: 'cover'
   },
   articleHalf__Details: {
@@ -134,13 +188,56 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 0,
     width: '100%',
-    borderRadius: 10
+    borderRadius: 7
   },
   articleHalf__title: {
     color: "white",
     fontSize: 14,
     fontWeight: "bold",
     textTransform: 'uppercase',
+  },
+  articleSmall: {
+    borderRadius: 7,  
+    height: 100,
+    marginBottom: 20,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: 'white'
+  },
+  articleSmall__Img: {
+    width: '29%',
+    borderTopLeftRadius: 7,
+    borderBottomLeftRadius: 7,
+    resizeMode: 'cover'
+  },
+  articleSmall__Details: {
+    flex: 1,
+    padding: 15,
+    backgroundColor: 'white',
+    borderTopRightRadius: 7,
+    borderBottomRightRadius: 7,
+    borderWidth: 1,
+    borderColor: '#DDD',
+    marginRight: 1
+  },
+  articleSmall__title: {
+    color: "black",
+    fontSize: 14,
+    fontWeight: "bold",
+    textTransform: 'uppercase',
+  },
+  articleTiny: {
+    height: 50,
+    marginBottom: 20,
+    backgroundColor: 'white',
+    borderBottomWidth: 1,
+    borderBottomColor: '#DDD',
+  },
+  articleTiny__title: {
+    color: "black",
+    fontSize: 14,
+    fontWeight: "bold",
+    textTransform: 'uppercase',
   }
-
 });

@@ -1,149 +1,148 @@
 import { StyleSheet, ScrollView, ImageBackground, FlatList, TouchableOpacity, Image } from 'react-native';
-import { Entypo, Foundation } from '@expo/vector-icons'; 
+import { Entypo, Foundation, MaterialIcons } from '@expo/vector-icons'; 
 
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 
 export default function LatestNewsScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
-  const messages = ['Clothes Line', 'Dropkick'];
-  const articles = [
-    { 
-      title: 'My article',
-      imageUrl: 'https://mediacloud.theweek.com/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1608148899/59267_article_full.jpg',
-      link: ''
-    },
-    { 
-      title: 'My article',
-      imageUrl: 'https://mediacloud.theweek.com/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1608148899/59267_article_full.jpg',
-      link: ''
-    },
-    { 
-      title: 'My article',
-      imageUrl: 'https://mediacloud.theweek.com/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1608148899/59267_article_full.jpg',
-      link: ''
-    },
-  ]
-  const numCols = 2;
 
-  /*
-  return (
-      <FlatList horizontal={false} numColumns={numCols} data={articles} style={styles.ViewContainer} renderItem={(article) => {
-        return (
-          <TouchableOpacity onPress={() => { navigation.navigate('TabTwo')}}>
-            <ImageBackground style={styles.article} source={{
-              uri: article.item.imageUrl,
-            }}>
-              <Text style={styles.title}>{article.index + 1} {article.item.title}</Text>
-            </ImageBackground>
-          </TouchableOpacity>
-        )
-      }}></FlatList>
-  );
-  */
+    const tags = [
+        { name: 'Edge' },
+        { name: 'Releases' },
+        { name: 'Raw' },
+        { name: 'WWE' },
+        { name: 'The Rock' },
+    ]
 
   return (
-    <ScrollView style={styles.ViewContainer}>
+    <ScrollView>
 
-      <View style={styles.articleLargeVideo} >
-        <Image style={styles.articleLargeVideo__Img} source={{
-          uri: 'https://wrestletalk.upro.site/wp-content/uploads/2021/12/img-13-1-1.jpg',
-        }}></Image>
-        <View style={styles.articleLargeVideo__Details}>
-          <Text style={styles.articleLargeVideo__title}>DAMIAN PRIEST VS. SHEAMUS TO BE TABLES MATCH AT WWE EXTREME RULES?</Text>
-        </View>
-        <View style={styles.articleType} ></View>
-        <Entypo style={styles.articleType__Video} name="controller-play" size={18} color="black" />
+        <View style={styles.TopicsContainer}>
+          <Text>TRENDING TOPICS</Text>
+
+          <FlatList 
+              style={styles.TopicsList}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              keyExtractor={tag => tag.name} 
+              data={tags}
+              renderItem={({ item }) => {
+                  return <Text style={styles.TopicsTags}>{item.name}</Text>
+              }}
+          ></FlatList>
       </View>
+            
+       <View style={styles.ViewContainer}>    
+        <TouchableOpacity onPress={() => { navigation.navigate('Article'), navigation.setParams({ articleTitle: 'Buddy Murphy Teases AEW Casino Ladder Match Appearance'})}}>
+            <View style={styles.articleLarge} >
+            <Image style={styles.articleLarge__Img} source={{
+            uri: 'https://static.wrestletalk.com/app/uploads/2022/01/darby-allin-january-13-b-960x540.jpg',
+            }}></Image>
+            <View style={styles.articleLarge__Details}>
+                <Text style={styles.articleLarge__title}>Darby Allin Presents Independent Star With An AEW Contract</Text>
+            </View>
+            </View>
+        </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => { navigation.navigate('Article'), navigation.setParams({ articleTitle: 'Buddy Murphy Teases AEW Casino Ladder Match Appearance'})}}>
-        <View style={styles.articleLarge} >
-          <Image style={styles.articleLarge__Img} source={{
-            uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-1.jpg',
-          }}></Image>
-          <View style={styles.articleLarge__Details}>
-            <Text style={styles.articleLarge__title}>Buddy Murphy Teases AEW Casino Ladder Match Appearance</Text>
-          </View>
+        <View style={styles.articleHalfContainer} >
+            <View style={styles.articleHalf} >
+            <Image style={styles.articleHalf__Img} source={{
+                uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-3.jpg',
+            }}></Image>
+            <View style={styles.articleHalf__Details}>
+                <Text style={styles.articleHalf__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+            </View> 
+            </View>
+
+            <View style={styles.articleHalf} >
+            <Image style={styles.articleHalf__ImgDisabled} source={{
+                uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-1.jpg',
+            }}></Image>
+            <View style={styles.articleHalf__DetailsDisabled}>
+                <View style={styles.articleLockBackground} >
+                    <MaterialIcons style={styles.articleLockIcon} name="lock" size={24} color="black" />
+                </View>
+                <Text style={styles.articleHalf__titleDisabled}>SUBSCRIBE TO UNLOCK THIS PREMIUM CONTENT</Text>
+            </View>
+            </View>
+
+            <View style={styles.articleHalf} >
+            <Image style={styles.articleHalf__Img} source={{
+                uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-3.jpg',
+            }}></Image>
+            <View style={styles.articleHalf__Details}>
+                <Text style={styles.articleHalf__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+            </View> 
+            </View>
+
+            <View style={styles.articleHalf} >
+            <Image style={styles.articleHalf__Img} source={{
+                uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-1.jpg',
+            }}></Image>
+            <View style={styles.articleHalf__Details}>
+                <Text style={styles.articleHalf__title}>BRITT BAKER SAYS WWE ‘DEFINITELY’ HAD INTEREST IN HER2</Text>
+            </View>
+            <View style={styles.articleType} ></View>
+            <Foundation style={styles.articleType__Video} name="sound" size={18} color="black" />
+            </View>
         </View>
-      </TouchableOpacity>
 
-      <View style={styles.articleHalfContainer} >
-        <View style={styles.articleHalf} >
-          <Image style={styles.articleHalf__Img} source={{
+        <View style={styles.articleSmall} >
+            <Image style={styles.articleSmall__Img} source={{
             uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-3.jpg',
-          }}></Image>
-          <View style={styles.articleHalf__Details}>
-            <Text style={styles.articleHalf__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
-          </View> 
+            }}></Image>
+            <View style={styles.articleSmall__Details}>
+            <Text style={styles.articleSmall__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+            </View> 
         </View>
 
-        <View style={styles.articleHalf} >
-          <Image style={styles.articleHalf__Img} source={{
-            uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-1.jpg',
-          }}></Image>
-          <View style={styles.articleHalf__Details}>
-            <Text style={styles.articleHalf__title}>BRITT BAKER SAYS WWE ‘DEFINITELY’ HAD INTEREST IN HER2</Text>
-          </View>
-          <View style={styles.articleType} ></View>
-          <Foundation style={styles.articleType__Video} name="sound" size={18} color="black" />
+        <View style={styles.articleSmall} >
+            <Image style={styles.articleSmall__Img} source={{
+            uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-3.jpg',
+            }}></Image>
+            <View style={styles.articleSmall__Details}>
+            <Text style={styles.articleSmall__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+            </View> 
+            <View style={styles.articleType} ></View>
+            <Entypo style={styles.articleType__Video} name="controller-play" size={18} color="black" />
         </View>
-      </View>
 
-      <View style={styles.articleSmall} >
-        <Image style={styles.articleSmall__Img} source={{
-          uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-3.jpg',
-        }}></Image>
-        <View style={styles.articleSmall__Details}>
-          <Text style={styles.articleSmall__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
-        </View> 
-      </View>
+        <View style={styles.articleSmall} >
+            <Image style={styles.articleSmall__Img} source={{
+            uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-3.jpg',
+            }}></Image>
+            <View style={styles.articleSmall__Details}>
+            <Text style={styles.articleSmall__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+            </View> 
+        </View>
 
-      <View style={styles.articleSmall} >
-        <Image style={styles.articleSmall__Img} source={{
-          uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-3.jpg',
-        }}></Image>
-        <View style={styles.articleSmall__Details}>
-          <Text style={styles.articleSmall__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
-        </View> 
-        <View style={styles.articleType} ></View>
-        <Entypo style={styles.articleType__Video} name="controller-play" size={18} color="black" />
-      </View>
+        <View style={styles.articleTiny} >
+            <Text style={styles.articleTiny__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+        </View>
 
-      <View style={styles.articleSmall} >
-        <Image style={styles.articleSmall__Img} source={{
-          uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-3.jpg',
-        }}></Image>
-        <View style={styles.articleSmall__Details}>
-          <Text style={styles.articleSmall__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
-        </View> 
-      </View>
+        <View style={styles.articleTiny} >
+            <Text style={styles.articleTiny__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+        </View>
 
-      <View style={styles.articleTiny} >
-        <Text style={styles.articleTiny__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
-      </View>
+        <View style={styles.articleTiny} >
+            <Text style={styles.articleTiny__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+        </View>
 
-      <View style={styles.articleTiny} >
-        <Text style={styles.articleTiny__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
-      </View>
+        <View style={styles.articleTiny} >
+            <Text style={styles.articleTiny__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+        </View>
 
-      <View style={styles.articleTiny} >
-        <Text style={styles.articleTiny__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
-      </View>
+        <View style={styles.articleTiny} >
+            <Text style={styles.articleTiny__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+        </View>
 
-      <View style={styles.articleTiny} >
-        <Text style={styles.articleTiny__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
-      </View>
+        <View style={styles.articleTiny} >
+            <Text style={styles.articleTiny__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+        </View>
 
-      <View style={styles.articleTiny} >
-        <Text style={styles.articleTiny__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
-      </View>
-
-      <View style={styles.articleTiny} >
-        <Text style={styles.articleTiny__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
-      </View>
-
-      <Text>&nbsp;</Text>
-      <Text>&nbsp;</Text>
-
+        <Text>&nbsp;</Text>
+        <Text>&nbsp;</Text>
+      </View>     
     </ScrollView>
   )
 }
@@ -157,6 +156,34 @@ const styles = StyleSheet.create({
     display: 'flex',
     overflow: 'scroll',
   },
+
+  TopicsContainer: {
+    paddingVertical: 15,
+    paddingLeft: 20,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%'
+  },
+  TopicsList: {
+    borderLeftColor: '#AAA',
+    borderLeftWidth: 1,
+    marginLeft: 20,
+    paddingLeft: 20,
+    fontSize: 12,
+    paddingRight: 80
+  },
+  TopicsTags: {
+    paddingVertical: 7,
+    paddingHorizontal: 12,
+    borderRadius: 4,
+    textTransform: 'uppercase',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.7)',
+    marginRight: 5,
+    fontSize: 12
+  },
+
   articleType: {
     position: 'absolute',
     backgroundColor: 'red',
@@ -224,13 +251,14 @@ const styles = StyleSheet.create({
   articleHalfContainer: {
     display: 'flex',
     flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'space-between',
     backgroundColor: '#FFF'
   },
   articleHalf: {
     borderRadius: 7,  
     width: '48%',
-    height: 200,
+    height: 180,
     marginBottom: 20,
     overflow: 'hidden'
   },
@@ -297,5 +325,44 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
     textTransform: 'uppercase',
+  },
+  articleHalf__ImgDisabled: {
+    height: '100%',
+    opacity: 0.3,
+    borderRadius: 7,
+    resizeMode: 'cover',
+  },
+  articleHalf__DetailsDisabled: {
+    padding: 20,
+    backgroundColor: 'rgba(128,128,128, 0.6)',
+    position: "absolute",
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    top: 0,
+    bottom: 0,
+    width: '100%',
+    borderRadius: 7
+    
+  },
+  articleHalf__titleDisabled: {
+    color: "white",
+    fontSize: 14,
+    fontWeight: "bold",
+    textTransform: 'uppercase',
+    textAlign: 'center'
+  },
+  articleLockBackground: {
+    backgroundColor: 'white',
+    borderRadius: 25,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: 50,
+    height: 50,
+    marginBottom: 20
+  },
+  articleLockIcon: {
+    alignSelf: 'center'
   }
 });

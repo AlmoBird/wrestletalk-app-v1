@@ -43,30 +43,34 @@ export default function WrestleTalkScreen({ navigation }: RootTabScreenProps<'Ta
   return (
     <ScrollView style={styles.ViewContainer}>
 
-      <View style={styles.article} >
-        <Image style={styles.articleImg} source={{
-          uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-1.jpg',
-        }}></Image>
-        <View style={styles.articleDetails}>
-          <Text style={styles.title}>Buddy Murphy Teases AEW Casino Ladder Match Appearance</Text>
+      <TouchableOpacity onPress={() => { navigation.navigate('Article'), navigation.setParams({ articleTitle: 'Buddy Murphy Teases AEW Casino Ladder Match Appearance'})}}>
+        <View style={styles.articleLarge} >
+          <Image style={styles.articleLarge__Img} source={{
+            uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-1.jpg',
+          }}></Image>
+          <View style={styles.articleLarge__Details}>
+            <Text style={styles.articleLarge__title}>Buddy Murphy Teases AEW Casino Ladder Match Appearance</Text>
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
 
-      <View style={styles.article} >
-        <Image style={styles.articleImg} source={{
-          uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-3.jpg',
-        }}></Image>
-        <View style={styles.articleDetails}>
-          <Text style={styles.title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
-        </View> 
-      </View>
+      <View style={styles.articleHalfContainer} >
+        <View style={styles.articleHalf} >
+          <Image style={styles.articleHalf__Img} source={{
+            uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-3.jpg',
+          }}></Image>
+          <View style={styles.articleHalf__Details}>
+            <Text style={styles.articleHalf__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+          </View> 
+        </View>
 
-      <View style={styles.article} >
-        <Image style={styles.articleImg} source={{
-          uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-1.jpg',
-        }}></Image>
-        <View style={styles.articleDetails}>
-          <Text style={styles.title}>BRITT BAKER SAYS WWE ‘DEFINITELY’ HAD INTEREST IN HER2</Text>
+        <View style={styles.articleHalf} >
+          <Image style={styles.articleHalf__Img} source={{
+            uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-1.jpg',
+          }}></Image>
+          <View style={styles.articleHalf__Details}>
+            <Text style={styles.articleHalf__title}>BRITT BAKER SAYS WWE ‘DEFINITELY’ HAD INTEREST IN HER2</Text>
+          </View>
         </View>
       </View>
 
@@ -83,17 +87,17 @@ const styles = StyleSheet.create({
     display: 'flex',
     overflow: 'scroll',
   },
-  article: {
+  articleLarge: {
     borderRadius: 10,  
     height: 230,
     marginBottom: 20
   },
-  articleImg: {
+  articleLarge__Img: {
     height: '100%',
     borderRadius: 10,
     resizeMode: 'cover'
   },
-  articleDetails: {
+  articleLarge__Details: {
     padding: 15,
     backgroundColor: 'rgba(0,0,0, 0.6)',
     position: "absolute",
@@ -101,11 +105,42 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 10
   },
-  title: {
+  articleLarge__title: {
     color: "white",
     fontSize: 16,
     fontWeight: "bold",
     textTransform: 'uppercase',
   },
+  articleHalfContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: '#FFF'
+  },
+  articleHalf: {
+    borderRadius: 10,  
+    width: '48%',
+    height: 200,
+    marginBottom: 20
+  },
+  articleHalf__Img: {
+    height: '100%',
+    borderRadius: 10,
+    resizeMode: 'cover'
+  },
+  articleHalf__Details: {
+    padding: 15,
+    backgroundColor: 'rgba(0,0,0, 0.6)',
+    position: "absolute",
+    bottom: 0,
+    width: '100%',
+    borderRadius: 10
+  },
+  articleHalf__title: {
+    color: "white",
+    fontSize: 14,
+    fontWeight: "bold",
+    textTransform: 'uppercase',
+  }
 
 });

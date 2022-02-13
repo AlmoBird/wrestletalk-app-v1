@@ -48,11 +48,11 @@ export default function WrestleTalkScreen({ navigation }: RootTabScreenProps<'Ta
         <Image style={styles.articleLargeVideo__Img} source={{
           uri: 'https://wrestletalk.upro.site/wp-content/uploads/2021/12/img-13-1-1.jpg',
         }}></Image>
-        <View style={styles.articleType} ></View>
-        <Entypo style={styles.articleType__Video} name="controller-play" size={24} color="black" />
         <View style={styles.articleLargeVideo__Details}>
           <Text style={styles.articleLargeVideo__title}>DAMIAN PRIEST VS. SHEAMUS TO BE TABLES MATCH AT WWE EXTREME RULES?</Text>
         </View>
+        <View style={styles.articleType} ></View>
+        <Entypo style={styles.articleType__Video} name="controller-play" size={18} color="black" />
       </View>
 
       <TouchableOpacity onPress={() => { navigation.navigate('Article'), navigation.setParams({ articleTitle: 'Buddy Murphy Teases AEW Casino Ladder Match Appearance'})}}>
@@ -80,11 +80,11 @@ export default function WrestleTalkScreen({ navigation }: RootTabScreenProps<'Ta
           <Image style={styles.articleHalf__Img} source={{
             uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-1.jpg',
           }}></Image>
-          <View style={styles.articleType} ></View>
-          <Foundation style={styles.articleType__Video} name="sound" size={24} color="black" />
           <View style={styles.articleHalf__Details}>
             <Text style={styles.articleHalf__title}>BRITT BAKER SAYS WWE ‘DEFINITELY’ HAD INTEREST IN HER2</Text>
           </View>
+          <View style={styles.articleType} ></View>
+          <Foundation style={styles.articleType__Video} name="sound" size={18} color="black" />
         </View>
       </View>
 
@@ -104,6 +104,8 @@ export default function WrestleTalkScreen({ navigation }: RootTabScreenProps<'Ta
         <View style={styles.articleSmall__Details}>
           <Text style={styles.articleSmall__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
         </View> 
+        <View style={styles.articleType} ></View>
+        <Entypo style={styles.articleType__Video} name="controller-play" size={18} color="black" />
       </View>
 
       <View style={styles.articleSmall} >
@@ -158,8 +160,8 @@ const styles = StyleSheet.create({
   articleType: {
     position: 'absolute',
     backgroundColor: 'red',
-    paddingHorizontal: 80,
-    paddingVertical: 40,
+    paddingHorizontal: 75,
+    paddingVertical: 36,
     right: -60,
     top: -40,
     transform: [
@@ -169,7 +171,7 @@ const styles = StyleSheet.create({
   articleType__Video: {
     color: 'white',
     position: 'absolute',
-    right: 15,
+    right: 13,
     top: 10,
     zIndex: 10,
   },
@@ -258,7 +260,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    overflow: 'hidden'
   },
   articleSmall__Img: {
     width: '29%',

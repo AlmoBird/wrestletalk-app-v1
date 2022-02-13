@@ -1,4 +1,5 @@
 import { StyleSheet, ScrollView, ImageBackground, FlatList, TouchableOpacity, Image } from 'react-native';
+import { Entypo, Foundation } from '@expo/vector-icons'; 
 
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
@@ -43,6 +44,17 @@ export default function WrestleTalkScreen({ navigation }: RootTabScreenProps<'Ta
   return (
     <ScrollView style={styles.ViewContainer}>
 
+      <View style={styles.articleLargeVideo} >
+        <Image style={styles.articleLargeVideo__Img} source={{
+          uri: 'https://wrestletalk.upro.site/wp-content/uploads/2021/12/img-13-1-1.jpg',
+        }}></Image>
+        <View style={styles.articleType} ></View>
+        <Entypo style={styles.articleType__Video} name="controller-play" size={24} color="black" />
+        <View style={styles.articleLargeVideo__Details}>
+          <Text style={styles.articleLargeVideo__title}>DAMIAN PRIEST VS. SHEAMUS TO BE TABLES MATCH AT WWE EXTREME RULES?</Text>
+        </View>
+      </View>
+
       <TouchableOpacity onPress={() => { navigation.navigate('Article'), navigation.setParams({ articleTitle: 'Buddy Murphy Teases AEW Casino Ladder Match Appearance'})}}>
         <View style={styles.articleLarge} >
           <Image style={styles.articleLarge__Img} source={{
@@ -68,6 +80,8 @@ export default function WrestleTalkScreen({ navigation }: RootTabScreenProps<'Ta
           <Image style={styles.articleHalf__Img} source={{
             uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-1.jpg',
           }}></Image>
+          <View style={styles.articleType} ></View>
+          <Foundation style={styles.articleType__Video} name="sound" size={24} color="black" />
           <View style={styles.articleHalf__Details}>
             <Text style={styles.articleHalf__title}>BRITT BAKER SAYS WWE ‘DEFINITELY’ HAD INTEREST IN HER2</Text>
           </View>
@@ -141,10 +155,29 @@ const styles = StyleSheet.create({
     display: 'flex',
     overflow: 'scroll',
   },
+  articleType: {
+    position: 'absolute',
+    backgroundColor: 'red',
+    paddingHorizontal: 80,
+    paddingVertical: 40,
+    right: -60,
+    top: -40,
+    transform: [
+      { rotateZ: "45deg" }
+    ]
+  },
+  articleType__Video: {
+    color: 'white',
+    position: 'absolute',
+    right: 15,
+    top: 10,
+    zIndex: 10,
+  },
   articleLarge: {
     borderRadius: 7,  
     height: 230,
-    marginBottom: 20
+    marginBottom: 20,
+    overflow: 'hidden'
   },
   articleLarge__Img: {
     height: '100%',
@@ -165,6 +198,27 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textTransform: 'uppercase',
   },
+  articleLargeVideo: {
+    borderRadius: 7,  
+    marginBottom: 20,
+    overflow: 'hidden'
+  },
+  articleLargeVideo__Img: {
+    height: 230,
+    borderRadius: 7,
+    resizeMode: 'cover'
+  },
+  articleLargeVideo__Details: {
+    paddingVertical: 10,
+    backgroundColor: 'white',
+    width: '100%',
+  },
+  articleLargeVideo__title: {
+    color: "black",
+    fontSize: 16,
+    fontWeight: "bold",
+    textTransform: 'uppercase',
+  },
   articleHalfContainer: {
     display: 'flex',
     flexDirection: 'row',
@@ -175,7 +229,8 @@ const styles = StyleSheet.create({
     borderRadius: 7,  
     width: '48%',
     height: 200,
-    marginBottom: 20
+    marginBottom: 20,
+    overflow: 'hidden'
   },
   articleHalf__Img: {
     height: '100%',

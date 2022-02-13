@@ -230,7 +230,7 @@ const styles = StyleSheet.create({
   articleHalf: {
     borderRadius: 7,  
     width: '48%',
-    height: 200,
+    height: 180,
     marginBottom: 20,
     overflow: 'hidden'
   },

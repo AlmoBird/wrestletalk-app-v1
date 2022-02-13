@@ -18,6 +18,7 @@ const linking: LinkingOptions<RootStackParamList> = {
           TabOne: {
             screens: {
               WrestleTalkScreen: 'one',
+              // ArticleScreen: 'article'
             },
           },
           TabTwo: {
@@ -33,6 +34,11 @@ const linking: LinkingOptions<RootStackParamList> = {
           TabFour: {
             screens: {
               TabFourScreen: 'four',
+            },
+          },
+          ArticleScreen: {
+            screens: {
+              ArticleScreen: 'article',
             },
           },
         },

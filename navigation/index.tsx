@@ -22,6 +22,7 @@ import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../typ
 import LinkingConfiguration from './LinkingConfiguration';
 import HeaderComponent from '../components/HeaderComponent';
 import SubTabComponent from '../components/SubTabComponent';
+import ArticleScreen from '../screens/ArticleScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -43,6 +44,7 @@ function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="WrestleTalk" component={BottomTabNavigator} options={{ headerTitle: (props) => <HeaderComponent {...props} /> }} />
+      <Stack.Screen name="Article" component={ArticleScreen} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />

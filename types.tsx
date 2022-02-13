@@ -18,6 +18,7 @@ export type RootStackParamList = {
   Modal: undefined;
   NotFound: undefined;
   WrestleTalk: undefined;
+  Article: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<
@@ -30,6 +31,7 @@ export type RootTabParamList = {
   TabTwo: undefined;
   TabThree: undefined;
   TabFour: undefined;
+  ArticleScreen: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<

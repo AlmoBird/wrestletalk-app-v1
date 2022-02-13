@@ -23,6 +23,7 @@ import LinkingConfiguration from './LinkingConfiguration';
 import HeaderComponent from '../components/HeaderComponent';
 import SubTabComponent from '../components/SubTabComponent';
 import ArticleScreen from '../screens/ArticleScreen';
+import LatestNewsScreen from '../screens/LatestNewsScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -58,6 +59,7 @@ function RootNavigator() {
  * https://reactnavigation.org/docs/bottom-tab-navigator
  */
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
+const homeScreen: typeof LatestNewsScreen | typeof WrestleTalkScreen = WrestleTalkScreen;
 
 function BottomTabNavigator() {
   const colorScheme = useColorScheme();
@@ -70,7 +72,7 @@ function BottomTabNavigator() {
       }}>
       <BottomTab.Screen
         name="TabOne"
-        component={WrestleTalkScreen}
+        component={homeScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
           title: 'WrestleTalk',
           tabBarIcon: ({ color }) => <TabBarIcon name="align-left" color={color} />,

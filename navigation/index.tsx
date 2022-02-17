@@ -16,7 +16,7 @@ import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import WrestleTalkScreen from '../screens/WrestleTalkScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
+import TShirtScreen from '../screens/shop/TShirtScreen';
 import TabThreeScreen from '../screens/TabThreeScreen';
 import TabFourScreen from '../screens/TabFourScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
@@ -25,6 +25,9 @@ import HeaderComponent from '../components/HeaderComponent';
 import SubTabComponent from '../components/SubTabComponent';
 import ArticleScreen from '../screens/ArticleScreen';
 import LatestNewsScreen from '../screens/LatestNewsScreen';
+import HoodiesScreen from '../screens/shop/HoodiesScreen';
+import MugsScreen from '../screens/shop/MugsScreen';
+import MagazinesScreen from '../screens/shop/MagazinesScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -68,6 +71,17 @@ function TopTabWrestleTalkNavigator() {
   );
 }
 
+function TopTabShopNavigator() {
+  return (
+    <TopTab.Navigator>
+      <TopTab.Screen name="T-Shirts" component={TShirtScreen} />
+      <TopTab.Screen name="Hoodies" component={HoodiesScreen} />
+      <TopTab.Screen name="Mugs" component={MugsScreen} />
+      <TopTab.Screen name="Magazine" component={MagazinesScreen} />
+    </TopTab.Navigator>
+  );
+}
+
 /**
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
  * https://reactnavigation.org/docs/bottom-tab-navigator
@@ -103,7 +117,7 @@ function BottomTabNavigator() {
       />  
       <BottomTab.Screen
         name="TabTwo"
-        component={TabTwoScreen}
+        component={TopTabShopNavigator}
         options={{
           title: 'WRESTLESHOP',
           tabBarIcon: ({ color }) => <Image source={require('./../assets/images/shop.png')} style={styles.navbarIcon} />,

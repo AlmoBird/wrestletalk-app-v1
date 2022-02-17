@@ -17,7 +17,7 @@ const linking: LinkingOptions<RootStackParamList> = {
         screens: {
           TabOne: {
             screens: {
-              WrestleTalkScreen: 'one',
+              FeaturedScreen: 'one',
               // ArticleScreen: 'article'
             },
           },

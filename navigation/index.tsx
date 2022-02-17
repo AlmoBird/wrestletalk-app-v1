@@ -6,6 +6,7 @@
 import { FontAwesome } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { ColorSchemeName, Image, Pressable, StyleSheet } from 'react-native';
@@ -54,11 +55,26 @@ function RootNavigator() {
   );
 }
 
+
+
+const TopTab = createMaterialTopTabNavigator();
+
+function TopTabWrestleTalkNavigator() {
+  return (
+    <TopTab.Navigator>
+      <TopTab.Screen name="Featured" component={WrestleTalkScreen} />
+      <TopTab.Screen name="Latest News" component={LatestNewsScreen} />
+    </TopTab.Navigator>
+  );
+}
+
 /**
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
  * https://reactnavigation.org/docs/bottom-tab-navigator
  */
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
+
+// Todo: Temp in place of sub-tabs solution 
 const homeScreen: typeof LatestNewsScreen | typeof WrestleTalkScreen = WrestleTalkScreen;
 
 function BottomTabNavigator() {
@@ -66,7 +82,7 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="TabTwo"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
         tabBarItemStyle: {
@@ -78,19 +94,20 @@ function BottomTabNavigator() {
       }}>
       <BottomTab.Screen
         name="TabOne"
-        component={homeScreen}
+        component={TopTabWrestleTalkNavigator}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
           title: 'WRESTLETALK',
           tabBarIcon: ({ color }) => <Image source={require('./../assets/images/wt.png')} style={styles.navbarIcon} />,
-          headerTitle: (props) => <SubTabComponent {...props} />
+          headerShown: false
         })}
-      />
+      />  
       <BottomTab.Screen
         name="TabTwo"
         component={TabTwoScreen}
         options={{
           title: 'WRESTLESHOP',
           tabBarIcon: ({ color }) => <Image source={require('./../assets/images/shop.png')} style={styles.navbarIcon} />,
+          headerShown: false
         }}
       />
       <BottomTab.Screen
@@ -99,6 +116,7 @@ function BottomTabNavigator() {
         options={{
           title: 'WRESTLELEAGUE',
           tabBarIcon: ({ color }) => <Image source={require('./../assets/images/league.png')} style={styles.navbarIcon} />,
+          headerShown: false
         }}
       />
       <BottomTab.Screen
@@ -107,6 +125,7 @@ function BottomTabNavigator() {
         options={{
           title: 'OFFERS',
           tabBarIcon: ({ color }) => <Image source={require('./../assets/images/offer.png')} style={styles.navbarIcon} />,
+          headerShown: false
         }}
       />
     </BottomTab.Navigator>

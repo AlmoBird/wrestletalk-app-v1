@@ -73,9 +73,11 @@ const TopTab = createMaterialTopTabNavigator();
 function TopTabWrestleTalkNavigator() {
   return (
     <TopTab.Navigator screenOptions={{
-      tabBarLabelStyle: { fontSize: 11, color: '#000' },
-      tabBarItemStyle: { width: 100 },
-      tabBarStyle: { backgroundColor: '#EEE' }
+      tabBarLabelStyle: { fontSize: 12, fontWeight: 'bold' },
+      tabBarStyle: { backgroundColor: '#EEE' },
+      tabBarIndicatorStyle: { backgroundColor: '#333', height: 3 },
+      tabBarActiveTintColor: '#333',
+      tabBarInactiveTintColor: '#999'
     }}>
       <TopTab.Screen name="Featured" component={WrestleTalkScreen} />
       <TopTab.Screen name="Latest News" component={LatestNewsScreen} />
@@ -87,7 +89,13 @@ function TopTabWrestleTalkNavigator() {
 
 function TopTabShopNavigator() {
   return (
-    <TopTab.Navigator>
+    <TopTab.Navigator screenOptions={{
+      tabBarLabelStyle: { fontSize: 12, fontWeight: 'bold' },
+      tabBarStyle: { backgroundColor: '#EEE' },
+      tabBarIndicatorStyle: { backgroundColor: '#333', height: 3 },
+      tabBarActiveTintColor: '#333',
+      tabBarInactiveTintColor: '#999'
+    }}>
       <TopTab.Screen name="T-Shirts" component={TShirtScreen} />
       <TopTab.Screen name="Hoodies" component={HoodiesScreen} />
       <TopTab.Screen name="Mugs" component={MugsScreen} />

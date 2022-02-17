@@ -1,8 +1,8 @@
 import { StyleSheet, ScrollView, ImageBackground, FlatList, TouchableOpacity, Image } from 'react-native';
 import { Entypo, Foundation, MaterialIcons } from '@expo/vector-icons'; 
 
-import { Text, View } from '../components/Themed';
-import { RootTabScreenProps } from '../types';
+import { Text, View } from '../../components/Themed';
+import { RootTabScreenProps } from '../../types';
 
 export default function LatestNewsScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
 

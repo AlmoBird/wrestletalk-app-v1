@@ -1,8 +1,8 @@
 import { StyleSheet, ScrollView, ImageBackground, FlatList, TouchableOpacity, Image } from 'react-native';
 import { Entypo, Foundation } from '@expo/vector-icons'; 
 
-import { Text, View } from '../components/Themed';
-import { RootTabScreenProps } from '../types';
+import { Text, View } from '../../components/Themed';
+import { RootTabScreenProps } from '../../types';
 
 export default function WrestleTalkScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
   const messages = ['Clothes Line', 'Dropkick'];

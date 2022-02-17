@@ -15,19 +15,27 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
-import WrestleTalkScreen from '../screens/WrestleTalkScreen';
+
+// Talk
+import WrestleTalkScreen from '../screens/talk/WrestleTalkScreen';
+import LatestNewsScreen from '../screens/talk/LatestNewsScreen';
+import ArticleScreen from '../screens/talk/ArticleScreen';
+
+// Shop
 import TShirtScreen from '../screens/shop/TShirtScreen';
+import HoodiesScreen from '../screens/shop/HoodiesScreen';
+import MugsScreen from '../screens/shop/MugsScreen';
+import MagazinesScreen from '../screens/shop/MagazinesScreen';
+
 import TabThreeScreen from '../screens/TabThreeScreen';
 import TabFourScreen from '../screens/TabFourScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import HeaderComponent from '../components/HeaderComponent';
-import SubTabComponent from '../components/SubTabComponent';
-import ArticleScreen from '../screens/ArticleScreen';
-import LatestNewsScreen from '../screens/LatestNewsScreen';
-import HoodiesScreen from '../screens/shop/HoodiesScreen';
-import MugsScreen from '../screens/shop/MugsScreen';
-import MagazinesScreen from '../screens/shop/MagazinesScreen';
+import AudioScreen from '../screens/talk/AudioScreen';
+import VideosScreen from '../screens/talk/VideosScreen';
+
+
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -64,9 +72,15 @@ const TopTab = createMaterialTopTabNavigator();
 
 function TopTabWrestleTalkNavigator() {
   return (
-    <TopTab.Navigator>
+    <TopTab.Navigator screenOptions={{
+      tabBarLabelStyle: { fontSize: 11, color: '#000' },
+      tabBarItemStyle: { width: 100 },
+      tabBarStyle: { backgroundColor: '#EEE' }
+    }}>
       <TopTab.Screen name="Featured" component={WrestleTalkScreen} />
       <TopTab.Screen name="Latest News" component={LatestNewsScreen} />
+      <TopTab.Screen name="Videos" component={VideosScreen} />
+      <TopTab.Screen name="Audio" component={AudioScreen} />
     </TopTab.Navigator>
   );
 }

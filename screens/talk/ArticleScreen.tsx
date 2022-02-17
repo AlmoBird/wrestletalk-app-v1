@@ -1,7 +1,7 @@
 import { StyleSheet, ScrollView, ImageBackground, FlatList, TouchableOpacity, Image, View, Text, Button } from 'react-native';
 import { AntDesign, Feather } from '@expo/vector-icons'; 
 
-import { RootTabScreenProps } from '../types';
+import { RootTabScreenProps } from '../../types';
 
 const wrestleTalkHighlight = '#F00053'
 

@@ -34,31 +34,29 @@ export default function ProductListItemComponent() {
         }
     ]
 
+    let productsView = [];
+
+    for(let i = 0; i < products.length; i++){
+        productsView.push(
+            <View style={styles.productItem}>
+                <Image style={styles.productImage} source={{uri: products[i].image}}></Image>
+                <Text style={styles.productName} >{ products[i].name}</Text>
+                <Text style={styles.productPrice} >{ products[i].price}</Text>
+                <Button onPress={console.log} title="ADD TO CART" color="#000" />
+            </View>
+        )
+	}
 
     return (        
-        <SafeAreaView>
+        <ScrollView>
             <ImageBackground style={styles.hero} source={{uri: imageURL}}>
                 <Text style={styles.heroHeadline} >{headline}</Text>
             </ImageBackground>
 
-            <View style={styles.productItemViewContainer}>
-                <FlatList 
-                    style={styles.productItemFlatListContainer}
-                    keyExtractor={product => product.name} 
-                    data={products}
-                    renderItem={({ item }) => {
-                        return (
-                            <View style={styles.productItem}>
-                                <Image style={styles.productImage} source={{uri: item.image}}></Image>
-                                <Text style={styles.productName} >{item.name}</Text>
-                                <Text style={styles.productPrice} >{item.price}</Text>
-                                <Button onPress={console.log} title="ADD TO CART" color="#000" />
-                            </View>
-                        ) 
-                    }}
-                ></FlatList>
+            <View style={styles.productItemViewContainer}>        
+                { productsView } 
             </View>
-        </SafeAreaView>
+        </ScrollView>
     );
 }
 
@@ -80,32 +78,39 @@ const styles = StyleSheet.create({
         textShadowRadius: 10,
     },
     productItemViewContainer: {
-        display: 'flex',
+        width: '100%',
         flexDirection: 'row',
-        flexWrap: 'wrap'
-    },
-    productItemFlatListContainer: {
-        backgroundColor: '#FFF',
-        width: 200
-    },
-    productItemContainer: {
-        backgroundColor: '#CCC',
-        width: '50%'
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        backgroundColor: '#EEE',
+        padding: '1.5%'
     },
     productItem: {
+        borderRadius: 8,
         backgroundColor: '#FFF',
-        width: '50%'
+        margin: '1.5%',
+        width: '45%',
+        padding: '5%',
+        justifyContent: 'space-between'
     },
     productImage: {
-        width: '100%',
-        height: 100,
+        height: 130,
         resizeMode: 'contain'
     },
     productName: {
-        color: '#000'
+        color: '#000',
+        textAlign: 'center'
     },
     productPrice: {
-        color: '#000'
+        color: '#000',
+        textAlign: 'center',
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginVertical: 10
+    },
+    addToCart: {
+        marginTop: '5%',
+        alignSelf: 'flex-end'
     }
 });
   

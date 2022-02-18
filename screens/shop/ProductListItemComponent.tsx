@@ -38,7 +38,7 @@ export default function ProductListItemComponent() {
 
     for(let i = 0; i < products.length; i++){
         productsView.push(
-            <View style={styles.productItem}>
+            <View style={styles.productItem} key={i}>
                 <Image style={styles.productImage} source={{uri: products[i].image}}></Image>
                 <Text style={styles.productName} >{ products[i].name}</Text>
                 <Text style={styles.productPrice} >{ products[i].price}</Text>

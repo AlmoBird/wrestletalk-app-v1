@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { StyleSheet, Image, Button, ScrollView, Picker, Text, View, FlatList, TouchableOpacity, SectionList} from 'react-native';
+import { StyleSheet, Image, Button, ScrollView, Picker, Text, View, FlatList, TouchableOpacity, SectionList, ImageBackground} from 'react-native';
+import { Ionicons } from '@expo/vector-icons'; 
 
 export default function HoodiesScreen() {
 
@@ -28,8 +29,12 @@ export default function HoodiesScreen() {
 
       {/* Header */}
 
+      <Ionicons style={styles.arrowBack} name="arrow-back-circle" size={50} color="red" />
+
       <View style={styles.productHeader}>
-        <Image style={styles.productImage} source={{uri: product.image}}></Image>
+        <ImageBackground style={styles.productImage} source={{uri: product.image}}>
+          <Ionicons style={styles.productImageNext} name="chevron-forward-circle-sharp" size={36} color="#CCC" />
+        </ImageBackground>
 
         <View style={styles.productMainDetails}>
           <Text style={styles.productName} >{ product.name}</Text>
@@ -93,9 +98,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     paddingTop: 20
   },
+  arrowBack: {
+    position: 'absolute',
+    zIndex: 999,
+    top: 0,
+    left: 10,
+  },
   productImage: {
     height: 250,
-    resizeMode: 'contain'
+    resizeMode: 'contain',
+  },
+  productImageNext: {
+    position: 'absolute',
+    zIndex: 999,
+    top: 100,
+    right: 0,
   },
   productHeader: {
     backgroundColor: '#FFF',

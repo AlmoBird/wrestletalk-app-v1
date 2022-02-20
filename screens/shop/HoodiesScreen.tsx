@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, Image, Button, ScrollView, Picker, Text, View, FlatList, TouchableOpacity, SectionList, ImageBackground} from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; 
+import ProductBarComponent from "./ProductBarComponent";
 
 export default function HoodiesScreen() {
 
@@ -89,6 +90,7 @@ export default function HoodiesScreen() {
         <Text>{sections[index].content}</Text>
       </View>
   
+      <ProductBarComponent></ProductBarComponent>
     </ScrollView>
   );
 }

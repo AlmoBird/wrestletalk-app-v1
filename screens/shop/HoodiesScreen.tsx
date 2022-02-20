@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Image, Button, ScrollView, Picker, Text, View} from 'react-native';
+import { StyleSheet, Image, Button, ScrollView, Picker, Text, View, FlatList, TouchableOpacity, SectionList} from 'react-native';
 
 export default function HoodiesScreen() {
 
@@ -10,12 +10,23 @@ export default function HoodiesScreen() {
     id: 1
   };
 
+  const sections = [
+    { name: 'Description', 'content': 'Description content goes here' },
+    { name: 'Reviews', 'content': 'Reviews content goes here' },
+    { name: 'Size Chat', 'content': 'Size content goes here' },
+    { name: 'Shirt Details', 'content': 'Shirt content goes here' },
+    { name: 'Other Information', 'content': 'Other content goes here' },
+]
+
   const [colorSelectedValue, setColorSelectedValue] = useState("Black");
   const [sizeSelectedValue, setSizeSelectedValue] = useState("L - Large");
+  const [index, setIndex] = React.useState(0);
 
 
   return (
     <ScrollView style={styles.productContainer}>
+
+      {/* Header */}
 
       <View style={styles.productHeader}>
         <Image style={styles.productImage} source={{uri: product.image}}></Image>
@@ -51,7 +62,28 @@ export default function HoodiesScreen() {
         
         <Button onPress={console.log} title="ADD TO CART" color="#000" /> 
       </View>
-      
+
+      {/* TABS */}
+
+      <FlatList 
+          style={styles.sectionList}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={section => section.name} 
+          data={sections}
+          renderItem={({ item }) => {
+              return <TouchableOpacity onPress={() => {
+                setIndex(sections.findIndex(section => section.name === item.name ))
+              }}>
+                <Text style={styles.sectionItem}>{item.name}</Text>
+              </TouchableOpacity>
+          }}
+      ></FlatList>
+
+      <View style={styles.sectionContent}>
+        <Text>{sections[index].content}</Text>
+      </View>
+  
     </ScrollView>
   );
 }
@@ -101,5 +133,25 @@ const styles = StyleSheet.create({
     borderWidth: 2, 
     borderColor: '#CCC', 
     display: 'flex', 
-    justifyContent: 'center' }
+    justifyContent: 'center' 
+  },
+  sectionList: {
+    marginTop: 20,
+    marginLeft: 0,
+    paddingLeft: 20,
+    fontSize: 12,
+    paddingRight: 80,
+    backgroundColor: '#F3F3F3'
+  },
+  sectionItem: {
+    paddingVertical: 20,
+    paddingHorizontal: 12,
+    borderRadius: 4,
+    textTransform: 'uppercase',
+    fontSize: 14
+  },
+  sectionContent: {
+    paddingHorizontal: 30,
+    paddingVertical: 20
+  }
 });

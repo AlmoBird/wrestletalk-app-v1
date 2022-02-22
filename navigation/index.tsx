@@ -36,6 +36,10 @@ import AudioScreen from '../screens/talk/AudioScreen';
 import VideosScreen from '../screens/talk/VideosScreen';
 import CartScreen from '../screens/shop/CartScreen';
 import FiltersScreen from '../screens/shop/FiltersScreen';
+import CheckoutContactScreen from '../screens/shop/checkout/CheckoutContactScreen';
+import CheckoutShippingScreen from '../screens/shop/checkout/CheckoutShippingScreen';
+import CheckoutPaymentScreen from '../screens/shop/checkout/CheckoutPaymentScreen';
+import CheckoutReviewScreen from '../screens/shop/checkout/CheckoutReviewScreen';
 
 
 
@@ -66,6 +70,7 @@ function RootNavigator() {
         <Stack.Screen name="Cart" component={CartScreen} />
         <Stack.Screen name="Filters" component={FiltersScreen} />
       </Stack.Group>
+      <Stack.Screen name="Checkout" component={TopTabCheckoutNavigator} />
     </Stack.Navigator>
   );
 }
@@ -104,6 +109,23 @@ function TopTabShopNavigator() {
       <TopTab.Screen name="Hoodies" component={HoodiesScreen} />
       <TopTab.Screen name="Mugs" component={MugsScreen} />
       <TopTab.Screen name="Magazine" component={MagazinesScreen} />
+    </TopTab.Navigator>
+  );
+}
+
+function TopTabCheckoutNavigator() {
+  return (
+    <TopTab.Navigator screenOptions={{
+      tabBarLabelStyle: { fontSize: 12, fontWeight: 'bold' },
+      tabBarStyle: { backgroundColor: '#EEE' },
+      tabBarIndicatorStyle: { backgroundColor: '#333', height: 3 },
+      tabBarActiveTintColor: '#333',
+      tabBarInactiveTintColor: '#999'
+    }}>
+      <TopTab.Screen name="Contact" component={CheckoutContactScreen} />
+      <TopTab.Screen name="Shipping" component={CheckoutShippingScreen} />
+      <TopTab.Screen name="Payment" component={CheckoutPaymentScreen} />
+      <TopTab.Screen name="Review" component={CheckoutReviewScreen} />
     </TopTab.Navigator>
   );
 }

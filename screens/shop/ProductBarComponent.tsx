@@ -9,7 +9,7 @@ export default function ProductBarComponent({navigation}: any) {
     return (        
         <View style={styles.productBarContainer}>
             <TouchableOpacity style={styles.productBarItem} onPress={() => { navigation.navigate('Filters')}}><Text style={styles.productBarText}>Filter</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.productBarItem} onPress={() => { navigation.navigate('Cart')}}><Text style={styles.productBarText}>Cart </Text><Text style={styles.productBarCount}>2</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.productBarItem} onPress={() => { navigation.navigate('Checkout')}}><Text style={styles.productBarText}>Cart </Text><Text style={styles.productBarCount}>2</Text></TouchableOpacity>
         </View>
     );
 }

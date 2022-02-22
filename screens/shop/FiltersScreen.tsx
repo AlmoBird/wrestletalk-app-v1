@@ -3,7 +3,7 @@ import { Image, ImageBackground, StyleSheet, FlatList, ScrollView, Button, Text,
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'; 
 
-export default function ProductFiltersComponent() {
+export default function FiltersScreen() {
 
     const sortOptions = [
         { name: 'Items sold' },

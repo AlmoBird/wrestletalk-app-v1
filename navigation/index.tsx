@@ -34,6 +34,8 @@ import LinkingConfiguration from './LinkingConfiguration';
 import HeaderComponent from '../components/HeaderComponent';
 import AudioScreen from '../screens/talk/AudioScreen';
 import VideosScreen from '../screens/talk/VideosScreen';
+import CartScreen from '../screens/shop/CartScreen';
+import FiltersScreen from '../screens/shop/FiltersScreen';
 
 
 
@@ -51,7 +53,7 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
  * A root stack navigator is often used for displaying modals on top of all other content.
  * https://reactnavigation.org/docs/modal
  */
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator();
 
 function RootNavigator() {
   return (
@@ -61,6 +63,8 @@ function RootNavigator() {
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
+        <Stack.Screen name="Cart" component={CartScreen} />
+        <Stack.Screen name="Filters" component={FiltersScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );

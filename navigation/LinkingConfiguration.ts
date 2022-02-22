@@ -43,6 +43,8 @@ const linking: LinkingOptions<RootStackParamList> = {
         },
       },
       Modal: 'modal',
+      Cart: 'cart',
+      Filters: 'filters',
       NotFound: '*',
     },
   },

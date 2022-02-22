@@ -1,15 +1,15 @@
 import React from "react";
-import { Image, ImageBackground, StyleSheet, FlatList, ScrollView, Button } from "react-native";
+import { Image, ImageBackground, StyleSheet, FlatList, ScrollView, Button, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Text, View } from '../../components/Themed';
 
-export default function ProductBarComponent() {
+export default function ProductBarComponent({navigation}: any) {
 
 
     return (        
         <View style={styles.productBarContainer}>
-            <View style={styles.productBarItem}><Text style={styles.productBarText}>Filter</Text></View>
-            <View style={styles.productBarItem}><Text style={styles.productBarText}>Cart </Text><Text style={styles.productBarCount}>2</Text></View>
+            <TouchableOpacity style={styles.productBarItem} onPress={() => { navigation.navigate('Filters')}}><Text style={styles.productBarText}>Filter</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.productBarItem} onPress={() => { navigation.navigate('Cart')}}><Text style={styles.productBarText}>Cart </Text><Text style={styles.productBarCount}>2</Text></TouchableOpacity>
         </View>
     );
 }

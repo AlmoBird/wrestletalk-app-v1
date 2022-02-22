@@ -3,24 +3,15 @@ import { StyleSheet } from 'react-native';
 
 import { Text, View } from '../../components/Themed';
 import ProductBarComponent from './ProductBarComponent';
-import ProductFiltersComponent from './ProductFiltersComponent';
 import ProductListItemComponent from './ProductListItemComponent';
 
-export default function TShirtScreen() {
+export default function TShirtScreen({ navigation }: any) {
   const [showFilters, setShowFilters] = useState(false);
 
   return (
     <View style={styles.categoriesScreen}>
-
-      {
-        showFilters ? 
-        <ProductFiltersComponent></ProductFiltersComponent>
-        : 
-        null
-      }
-      
       <ProductListItemComponent></ProductListItemComponent>
-      <ProductBarComponent></ProductBarComponent>
+      <ProductBarComponent navigation={navigation}></ProductBarComponent>
     </View>
   );
 }

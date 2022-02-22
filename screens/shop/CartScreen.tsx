@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, FlatList, Button, Text, View, Image, TouchableOpacity } from "react-native";
 import { Ionicons, FontAwesome } from '@expo/vector-icons'; 
 
-export default function CartScreen() {
+export default function CartScreen({navigation}: any) {
   const sortOptions = [
     { name: 'Items sold' },
     { name: 'Price' },
@@ -71,7 +71,7 @@ export default function CartScreen() {
             </View>
         </View>
 
-        <Button onPress={console.log} title="CHECKOUT" color="#000" /> 
+        <Button onPress={() => { navigation.navigate('Checkout')}} title="CHECKOUT" color="#000" /> 
         <Text style={styles.continueShopping}>Continue Shopping</Text>
     </View>
   );

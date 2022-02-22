@@ -58,7 +58,7 @@ export default function FiltersScreen() {
                 </View>
             </View>
 
-            <Button onPress={console.log} title="" color="#000" /> 
+            <Button onPress={console.log} title="APPLY FILTER" color="#000" /> 
             <Text style={styles.continueShopping}>Continue Shopping</Text>
         </View>
     );

@@ -1,13 +1,11 @@
-import { StyleSheet,Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+
+import checkoutStyles from './CheckoutStyle.style';
 
 export default function CheckoutContactScreen() {
   return (
-    <View>
-      <Text>CheckoutContactScreen</Text>
-    </View>
+    <ScrollView style={checkoutStyles.container}>
+      <Text style={checkoutStyles.title}>Contact</Text>
+    </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-
-});

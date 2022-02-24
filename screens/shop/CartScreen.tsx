@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, FlatList, Button, Text, View, Image, TouchableOpacity } from "react-native";
 import { Ionicons, FontAwesome } from '@expo/vector-icons'; 
+import appStyles from "../../styles/appStyles.style";
 
 export default function CartScreen({navigation}: any) {
   const sortOptions = [
@@ -39,7 +40,7 @@ export default function CartScreen({navigation}: any) {
   return (        
     <View style={styles.productFiltersContainer}>
         <View style={styles.productFilterHeader}>
-            <Text style={styles.productFilterHeaderText}>Cart</Text>
+            <Text style={appStyles.title}>Cart</Text>
         </View>
 
         <View style={styles.productFilterSection}>

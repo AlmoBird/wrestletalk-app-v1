@@ -27,7 +27,7 @@ export default function CheckoutReviewScreen({ navigation }: any) {
           </View>
         </View>
 
-        <View style={appStyles.section}>
+        <View style={appStyles.checkoutSection}>
           <Text style={[appStyles.text, appStyles.checkoutLabel]}>Method</Text>
           <View style={appStyles.content}>
             <Text style={appStyles.contentShipping}>WT MAG Shipping <Text style={appStyles.contentName}>£4.99</Text></Text>
@@ -51,12 +51,13 @@ export default function CheckoutReviewScreen({ navigation }: any) {
           <Text style={[appStyles.text, appStyles.checkoutLabel]}>Shipping</Text>
           <Text style={appStyles.price}>£4.99</Text>
         </View>
+
+        <View style={appStyles.totalSection}>
+          <Text style={[appStyles.text, appStyles.totalLabel]}>Total</Text>
+          <Text style={appStyles.totalPrice}><Text style={appStyles.totalCurrency}>GBP</Text> £54.99</Text>
+        </View>
       </View>
 
-      <View style={appStyles.totalSection}>
-        <Text style={[appStyles.text, appStyles.totalLabel]}>Total</Text>
-        <Text style={appStyles.totalPrice}><Text style={appStyles.totalCurrency}>GBP</Text> £54.99</Text>
-      </View>
 
       <Button onPress={() => { navigation.navigate('Confirmation')}} title="PAY NOW" color="#000" /> 
       <Text style={appStyles.goBack}>Return to Payment</Text>

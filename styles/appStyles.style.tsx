@@ -46,7 +46,77 @@ const appStyles = StyleSheet.create({
     color: '#777',
     textAlign: 'center',
     padding: 20
-  }
+  },
+  mainBlock: {
+    borderWidth: 1,
+    borderColor: '#DDD',
+    marginVertical: 20,
+    padding: 20
+  },
+  checkoutSection: {
+    paddingBottom: 15,
+    marginBottom: 15,
+    borderBottomColor: '#EEE',
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+  },
+  lastSection: {
+    flexDirection: 'row',
+  },
+  checkoutLabel: {
+    width: 100,
+    fontSize: 16
+  },
+  content: {
+    flex: 1
+  },
+  contentEmail: {
+    fontWeight: 'bold',
+  },
+  contentName: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10
+  },
+  contentShipping: {
+    fontSize: 16,
+  },
+  paymentSection: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 10
+  },
+  confirmationPaymentSection: {
+    paddingVertical: 20
+  },
+  price: {
+    fontSize: 16,
+    fontWeight: 'bold'
+  },
+  totalSection: {
+    borderTopColor: '#EEE',
+    borderTopWidth: 1,
+    paddingTop: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  totalSectionConfirmation: {
+    paddingTop: 20,
+  },
+  totalLabel: {
+    fontSize: 20
+  },
+  totalPrice: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    flexDirection: 'row',
+  },
+  totalCurrency: {
+    fontSize: 12,
+    textTransform: 'uppercase',
+    color: '#999',
+    marginRight: 10
+  },
 });
 
 export default appStyles;

@@ -40,6 +40,7 @@ import CheckoutContactScreen from '../screens/shop/checkout/CheckoutContactScree
 import CheckoutShippingScreen from '../screens/shop/checkout/CheckoutShippingScreen';
 import CheckoutPaymentScreen from '../screens/shop/checkout/CheckoutPaymentScreen';
 import CheckoutReviewScreen from '../screens/shop/checkout/CheckoutReviewScreen';
+import ConfirmationScreen from '../screens/shop/ConfirmationScreen';
 
 
 
@@ -71,6 +72,7 @@ function RootNavigator() {
         <Stack.Screen name="Filters" component={FiltersScreen} />
       </Stack.Group>
       <Stack.Screen name="Checkout" component={TopTabCheckoutNavigator} />
+      <Stack.Screen name="Confirmation" component={ConfirmationScreen} />
     </Stack.Navigator>
   );
 }

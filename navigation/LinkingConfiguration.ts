@@ -44,6 +44,7 @@ const linking: LinkingOptions<RootStackParamList> = {
       },
       Modal: 'modal',
       Cart: 'cart',
+      Confirmation: 'confirmation',
       Filters: 'filters',
       NotFound: '*',
     },

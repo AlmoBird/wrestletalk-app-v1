@@ -7,18 +7,18 @@ export default function CheckoutReviewScreen({ navigation }: any) {
     <ScrollView style={appStyles.container}>
       <Text style={appStyles.title}>Review Order</Text>
 
-      <View style={styles.mainBlock}>
-        <View style={styles.section}>
-          <Text style={[appStyles.text, styles.label]}>Contact</Text>
-          <View style={styles.content}>
-            <Text style={styles.contentEmail}>craig.bellamy@gmail.com</Text>
+      <View style={appStyles.mainBlock}>
+        <View style={appStyles.checkoutSection}>
+          <Text style={[appStyles.text, appStyles.checkoutLabel]}>Contact</Text>
+          <View style={appStyles.content}>
+            <Text style={appStyles.contentEmail}>craig.bellamy@gmail.com</Text>
           </View>
         </View>
 
-        <View style={styles.section}>
-          <Text style={[appStyles.text, styles.label]}>Ship to</Text>
-          <View style={styles.content}>
-            <Text style={styles.contentName}>Craig Bellamy</Text>
+        <View style={appStyles.checkoutSection}>
+          <Text style={[appStyles.text, appStyles.checkoutLabel]}>Ship to</Text>
+          <View style={appStyles.content}>
+            <Text style={appStyles.contentName}>Craig Bellamy</Text>
             <Text>100 Holmestead St</Text>
             <Text>Orchid Ln, 2nd Floor, 23C</Text>
             <Text>Cardiff</Text>
@@ -27,37 +27,38 @@ export default function CheckoutReviewScreen({ navigation }: any) {
           </View>
         </View>
 
-        <View style={styles.section}>
-          <Text style={[appStyles.text, styles.label]}>Method</Text>
-          <View style={styles.content}>
-            <Text style={styles.contentShipping}>WT MAG Shipping <Text style={styles.contentName}>£4.99</Text></Text>
+        <View style={appStyles.section}>
+          <Text style={[appStyles.text, appStyles.checkoutLabel]}>Method</Text>
+          <View style={appStyles.content}>
+            <Text style={appStyles.contentShipping}>WT MAG Shipping <Text style={appStyles.contentName}>£4.99</Text></Text>
           </View>
         </View>
 
-        <View style={styles.lastSection}>
-          <Text style={[appStyles.text, styles.label]}>Payment</Text>
-          <View style={styles.content}>
-            <Text style={styles.contentShipping}>VISA ending with 9299</Text>
+        <View style={appStyles.lastSection}>
+          <Text style={[appStyles.text, appStyles.checkoutLabel]}>Payment</Text>
+          <View style={appStyles.content}>
+            <Text style={appStyles.contentShipping}>VISA ending with 9299</Text>
           </View>
         </View>
       </View>
 
-      <View style={styles.mainBlock}>
-        <View style={styles.paymentSection}>
-          <Text style={[appStyles.text, styles.label]}>Contact</Text>
-          <Text style={styles.price}>£50.00</Text>
+      <View style={appStyles.mainBlock}>
+        <View style={appStyles.paymentSection}>
+          <Text style={[appStyles.text, appStyles.checkoutLabel]}>Subtotal</Text>
+          <Text style={appStyles.price}>£50.00</Text>
         </View>
-        <View style={styles.paymentSection}>
-          <Text style={[appStyles.text, styles.label]}>Shipping</Text>
-          <Text style={styles.price}>£4.99</Text>
-        </View>
-        <View style={styles.totalSection}>
-          <Text style={[appStyles.text, styles.totalLabel]}>Shipping</Text>
-          <Text style={styles.totalPrice}><Text style={styles.totalCurrency}>GBP</Text>£54.99</Text>
+        <View style={appStyles.paymentSection}>
+          <Text style={[appStyles.text, appStyles.checkoutLabel]}>Shipping</Text>
+          <Text style={appStyles.price}>£4.99</Text>
         </View>
       </View>
 
-      <Button onPress={() => { navigation.navigate('Payment')}} title="PAY NOW" color="#000" /> 
+      <View style={appStyles.totalSection}>
+        <Text style={[appStyles.text, appStyles.totalLabel]}>Total</Text>
+        <Text style={appStyles.totalPrice}><Text style={appStyles.totalCurrency}>GBP</Text> £54.99</Text>
+      </View>
+
+      <Button onPress={() => { navigation.navigate('Confirmation')}} title="PAY NOW" color="#000" /> 
       <Text style={appStyles.goBack}>Return to Payment</Text>
       
       <Text>&nbsp;</Text>
@@ -68,68 +69,5 @@ export default function CheckoutReviewScreen({ navigation }: any) {
 }
 
 const styles = StyleSheet.create({
-  mainBlock: {
-    borderWidth: 1,
-    borderColor: '#DDD',
-    marginVertical: 20,
-    padding: 20
-  },
-  section: {
-    paddingBottom: 15,
-    marginBottom: 15,
-    borderBottomColor: '#EEE',
-    borderBottomWidth: 1,
-    flexDirection: 'row',
-  },
-  lastSection: {
-    flexDirection: 'row',
-  },
-  label: {
-    width: 100,
-    fontSize: 16
-  },
-  content: {
-    flex: 1
-  },
-  contentEmail: {
-    fontWeight: 'bold',
-  },
-  contentName: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 10
-  },
-  contentShipping: {
-    fontSize: 16,
-  },
-  paymentSection: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 10
-  },
-  price: {
-    fontSize: 16,
-    fontWeight: 'bold'
-  },
-  totalSection: {
-    borderTopColor: '#EEE',
-    borderTopWidth: 1,
-    paddingTop: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  totalLabel: {
-    fontSize: 20
-  },
-  totalPrice: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    flexDirection: 'row',
-  },
-  totalCurrency: {
-    fontSize: 12,
-    textTransform: 'uppercase',
-    color: '#999',
-    marginRight: 10
-  },
+  
 });

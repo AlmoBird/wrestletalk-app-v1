@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { StyleSheet, Image, Button, ScrollView, Picker, Text, View, FlatList, TouchableOpacity, SectionList, ImageBackground} from 'react-native';
+import { StyleSheet, Image, Button, ScrollView, Text, View, FlatList, TouchableOpacity, SectionList, ImageBackground} from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; 
 import ProductBarComponent from "./ProductBarComponent";
+import { Picker } from '@react-native-picker/picker';
 
-export default function HoodiesScreen() {
+export default function HoodiesScreen({ navigation }: any) {
 
   const product = {
     image: 'https://cdn.shopify.com/s/files/1/0070/5698/2143/products/13342B_1000x1000_crop_center.jpg?v=1614703153',
@@ -90,7 +91,7 @@ export default function HoodiesScreen() {
         <Text>{sections[index].content}</Text>
       </View>
   
-      <ProductBarComponent></ProductBarComponent>
+      <ProductBarComponent navigation={navigation}></ProductBarComponent>
     </ScrollView>
   );
 }

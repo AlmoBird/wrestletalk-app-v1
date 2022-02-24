@@ -44,16 +44,18 @@ export default function WrestleTalkScreen({ navigation }: RootTabScreenProps<'Ta
   return (
     <ScrollView style={styles.ViewContainer}>
 
-      <View style={styles.articleLargeVideo} >
-        <Image style={styles.articleLargeVideo__Img} source={{
-          uri: 'https://wrestletalk.upro.site/wp-content/uploads/2021/12/img-13-1-1.jpg',
-        }}></Image>
-        <View style={styles.articleLargeVideo__Details}>
-          <Text style={styles.articleLargeVideo__title}>DAMIAN PRIEST VS. SHEAMUS TO BE TABLES MATCH AT WWE EXTREME RULES?</Text>
+      <TouchableOpacity onPress={() => { navigation.navigate('Register')}}>
+        <View style={styles.articleLargeVideo} >
+          <Image style={styles.articleLargeVideo__Img} source={{
+            uri: 'https://wrestletalk.upro.site/wp-content/uploads/2021/12/img-13-1-1.jpg',
+          }}></Image>
+          <View style={styles.articleLargeVideo__Details}>
+            <Text style={styles.articleLargeVideo__title}>DAMIAN PRIEST VS. SHEAMUS TO BE TABLES MATCH AT WWE EXTREME RULES?</Text>
+          </View>
+          <View style={styles.articleType} ></View>
+          <Entypo style={styles.articleType__Video} name="controller-play" size={18} color="black" />
         </View>
-        <View style={styles.articleType} ></View>
-        <Entypo style={styles.articleType__Video} name="controller-play" size={18} color="black" />
-      </View>
+      </TouchableOpacity>
 
       <TouchableOpacity onPress={() => { navigation.navigate('Article'), navigation.setParams({ articleTitle: 'Buddy Murphy Teases AEW Casino Ladder Match Appearance'})}}>
         <View style={styles.articleLarge} >

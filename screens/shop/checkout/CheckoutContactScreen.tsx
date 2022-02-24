@@ -1,4 +1,4 @@
-import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, ScrollView, Text, TextInput, View } from 'react-native';
 
 import checkoutStyles from './CheckoutStyle.style';
 
@@ -62,7 +62,7 @@ export default function CheckoutContactScreen({ navigation }: any) {
         </View>
       </View>
 
-      <Button onPress={() => { navigation.navigate('Checkout')}} title="GO TO PAYMENT" color="#000" /> 
+      <Button onPress={() => { navigation.navigate('Shipping')}} title="CONTINUE TO SHIPPING" color="#000" /> 
       <Text style={checkoutStyles.goBack}>Go Back</Text>
       
       <Text>&nbsp;</Text>

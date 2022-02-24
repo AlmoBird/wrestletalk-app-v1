@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-const checkoutStyles = StyleSheet.create({
+const appStyles = StyleSheet.create({
   container: {
     backgroundColor: '#FFF',
     flex: 1,
@@ -49,4 +49,4 @@ const checkoutStyles = StyleSheet.create({
   }
 });
 
-export default checkoutStyles;
+export default appStyles;

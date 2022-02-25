@@ -73,7 +73,7 @@ function RootNavigator() {
         <Stack.Screen name="Filters" component={FiltersScreen} />
       </Stack.Group>
       <Stack.Screen name="Checkout" component={TopTabCheckoutNavigator} />
-      <Stack.Screen name="Register" component={RegisterScreen} options={{ headerTitle: (props) => <HeaderComponent {...props} /> }}  />
+      <Stack.Screen name="Register" component={RegisterScreen} options={{ headerTitle: (props) => <HeaderComponent {...props} />, headerBackVisible: false }}  />
       <Stack.Screen name="Confirmation" component={ConfirmationScreen} />
     </Stack.Navigator>
   );

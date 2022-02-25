@@ -7,24 +7,26 @@ export default function RegisterScreen({ navigation }: any) {
       <Text style={appStyles.title}>Register</Text>
       <Text style={appStyles.text}>Already registered? <Text style={appStyles.textLink}>Log in</Text></Text>
 
-      <View style={[appStyles.inputSection]}>
-        <Text style={[appStyles.text, appStyles.label]}>First Name</Text>
-        <TextInput style={appStyles.input}></TextInput>
-      </View>
+      <View style={appStyles.section}>
+        <View style={[appStyles.inputSection]}>
+          <Text style={[appStyles.text, appStyles.label]}>First Name</Text>
+          <TextInput style={appStyles.input}></TextInput>
+        </View>
 
-      <View style={[appStyles.inputSection]}>
-        <Text style={[appStyles.text, appStyles.label]}>Surname</Text>
-        <TextInput style={appStyles.input}></TextInput>
-      </View>
+        <View style={[appStyles.inputSection]}>
+          <Text style={[appStyles.text, appStyles.label]}>Surname</Text>
+          <TextInput style={appStyles.input}></TextInput>
+        </View>
 
-      <View style={[appStyles.inputSection]}>
-        <Text style={[appStyles.text, appStyles.label]}>Email</Text>
-        <TextInput style={appStyles.input}></TextInput>
-      </View>
+        <View style={[appStyles.inputSection]}>
+          <Text style={[appStyles.text, appStyles.label]}>Email</Text>
+          <TextInput style={appStyles.input}></TextInput>
+        </View>
 
-      <View style={[appStyles.inputSection]}>
-        <Text style={[appStyles.text, appStyles.label]}>Password</Text>
-        <TextInput style={appStyles.input}></TextInput>
+        <View style={[appStyles.inputSection]}>
+          <Text style={[appStyles.text, appStyles.label]}>Password</Text>
+          <TextInput style={appStyles.input}></TextInput>
+        </View>
       </View>
 
       <Button onPress={() => { navigation.navigate('Shipping')}} title="REGISTER" color="#000" /> 

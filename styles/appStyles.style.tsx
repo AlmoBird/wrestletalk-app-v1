@@ -17,7 +17,7 @@ const appStyles = StyleSheet.create({
     color: '#999'
   },
   textLink: {
-    color: 'red'
+    color: 'red',
   },
   inputSection: {
     marginTop: 20

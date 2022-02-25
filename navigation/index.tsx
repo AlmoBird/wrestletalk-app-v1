@@ -42,6 +42,7 @@ import CheckoutPaymentScreen from '../screens/shop/checkout/CheckoutPaymentScree
 import CheckoutReviewScreen from '../screens/shop/checkout/CheckoutReviewScreen';
 import ConfirmationScreen from '../screens/shop/ConfirmationScreen';
 import RegisterScreen from '../screens/RegisterScreen';
+import LoginScreen from '../screens/LoginScreen';
 
 
 
@@ -74,6 +75,7 @@ function RootNavigator() {
       </Stack.Group>
       <Stack.Screen name="Checkout" component={TopTabCheckoutNavigator} />
       <Stack.Screen name="Register" component={RegisterScreen} options={{ headerTitle: (props) => <HeaderComponent {...props} />, headerBackVisible: false }}  />
+      <Stack.Screen name="Login" component={LoginScreen} options={{ headerTitle: (props) => <HeaderComponent {...props} />, headerBackVisible: false }}  />
       <Stack.Screen name="Confirmation" component={ConfirmationScreen} />
     </Stack.Navigator>
   );

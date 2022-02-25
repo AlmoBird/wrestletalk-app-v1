@@ -23,6 +23,7 @@ export type RootStackParamList = {
   WrestleTalk: undefined;
   Article: undefined;
   Register: undefined;
+  Login: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<

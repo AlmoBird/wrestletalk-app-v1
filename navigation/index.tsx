@@ -43,6 +43,7 @@ import CheckoutReviewScreen from '../screens/shop/checkout/CheckoutReviewScreen'
 import ConfirmationScreen from '../screens/shop/ConfirmationScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import LoginScreen from '../screens/LoginScreen';
+import PasswordScreen from '../screens/PasswordScreen';
 
 
 
@@ -64,7 +65,7 @@ const Stack = createNativeStackNavigator();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerTitle: (props) => <HeaderComponent {...props} />, headerBackVisible: false }} >
       <Stack.Screen name="WrestleTalk" component={BottomTabNavigator} options={{ headerTitle: (props) => <HeaderComponent {...props} /> }} />
       <Stack.Screen name="Article" component={ArticleScreen} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
@@ -73,9 +74,12 @@ function RootNavigator() {
         <Stack.Screen name="Cart" component={CartScreen} />
         <Stack.Screen name="Filters" component={FiltersScreen} />
       </Stack.Group>
+      <Stack.Group>
+        <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Password" component={PasswordScreen} />
+      </Stack.Group>
       <Stack.Screen name="Checkout" component={TopTabCheckoutNavigator} />
-      <Stack.Screen name="Register" component={RegisterScreen} options={{ headerTitle: (props) => <HeaderComponent {...props} />, headerBackVisible: false }}  />
-      <Stack.Screen name="Login" component={LoginScreen} options={{ headerTitle: (props) => <HeaderComponent {...props} />, headerBackVisible: false }}  />
       <Stack.Screen name="Confirmation" component={ConfirmationScreen} />
     </Stack.Navigator>
   );

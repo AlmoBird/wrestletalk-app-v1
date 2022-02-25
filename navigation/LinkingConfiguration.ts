@@ -47,6 +47,7 @@ const linking: LinkingOptions<RootStackParamList> = {
       Confirmation: 'confirmation',
       Register: 'register',
       Login: 'login',
+      Password: 'password',
       Filters: 'filters',
       NotFound: '*',
     },

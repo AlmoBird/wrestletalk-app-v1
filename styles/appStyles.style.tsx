@@ -117,6 +117,48 @@ const appStyles = StyleSheet.create({
     color: '#999',
     marginRight: 10
   },
+  goPremiumContainer: {
+    backgroundColor: '#FFF',
+    flex: 1
+  },
+  goPremiumHeader: {
+    backgroundColor: '#DDD',
+    paddingHorizontal: 30,
+    paddingVertical: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  goPremiumHeading: {
+    fontSize: 22,
+    fontWeight: 'bold'
+  },
+  goPremiumButton: {
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+    backgroundColor: '#000',
+  },
+  goPremiumButtonText: {
+    color: '#FFF'
+  },
+  authActionContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginVertical: 20
+  },
+  authActionButton: {
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+    backgroundColor: '#000',
+    width: '48%'
+  },
+  authActionButtonText: {
+    color: '#FFF'
+  }
 });
 
 export default appStyles;

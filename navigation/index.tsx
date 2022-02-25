@@ -44,6 +44,7 @@ import ConfirmationScreen from '../screens/shop/ConfirmationScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import LoginScreen from '../screens/LoginScreen';
 import PasswordScreen from '../screens/PasswordScreen';
+import SettingScreen from '../screens/SettingScreen';
 
 
 
@@ -71,16 +72,19 @@ function RootNavigator() {
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
-        <Stack.Screen name="Cart" component={CartScreen} />
-        <Stack.Screen name="Filters" component={FiltersScreen} />
       </Stack.Group>
       <Stack.Group>
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Password" component={PasswordScreen} />
+        <Stack.Screen name="Settings" component={SettingScreen} />
       </Stack.Group>
-      <Stack.Screen name="Checkout" component={TopTabCheckoutNavigator} />
-      <Stack.Screen name="Confirmation" component={ConfirmationScreen} />
+      <Stack.Group>
+        <Stack.Screen name="Checkout" component={TopTabCheckoutNavigator} />
+        <Stack.Screen name="Confirmation" component={ConfirmationScreen} />
+        <Stack.Screen name="Cart" component={CartScreen} />
+        <Stack.Screen name="Filters" component={FiltersScreen} />
+      </Stack.Group>
     </Stack.Navigator>
   );
 }
@@ -154,7 +158,7 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabTwo"
+      initialRouteName="TabOne"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
         tabBarItemStyle: {

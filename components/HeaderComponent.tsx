@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Image, Text, StyleSheet, TextInput, FlatList } from "react-native";
+import { View, Image, Text, StyleSheet, TextInput, FlatList, TouchableOpacity } from "react-native";
 import { Ionicons, Entypo } from '@expo/vector-icons'; 
 
 export default function HeaderComponent({ navigation }: any) {
@@ -24,7 +24,9 @@ export default function HeaderComponent({ navigation }: any) {
             {
                 showSettings ? 
                 <View style={styles.settingsDropdown}>
-                    <Text style={styles.settingsItem}>Settings</Text>
+                    <TouchableOpacity onPress={() => { console.log(navigation)}}>
+                        <Text style={styles.settingsItem}>Settings</Text>
+                    </TouchableOpacity>
                     <Text style={styles.settingsItem}>Settings</Text>
                 </View>
                 : 

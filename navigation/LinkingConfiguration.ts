@@ -46,6 +46,7 @@ const linking: LinkingOptions<RootStackParamList> = {
       Cart: 'cart',
       Confirmation: 'confirmation',
       Register: 'register',
+      SearchResults: 'searchResults',
       Login: 'login',
       Password: 'password',
       Filters: 'filters',

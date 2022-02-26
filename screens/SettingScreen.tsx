@@ -17,7 +17,7 @@ export default function SettingScreen({ navigation }: any) {
   });
 
   return (
-    <ScrollView style={appStyles.goPremiumContainer}>
+    <ScrollView style={appStyles.scrollContainer}>
 
       <View style={appStyles.goPremiumHeader}>
         <Text style={appStyles.goPremiumHeading}>Go Premium</Text>

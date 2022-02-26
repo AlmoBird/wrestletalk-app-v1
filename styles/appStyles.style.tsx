@@ -121,7 +121,7 @@ const appStyles = StyleSheet.create({
     color: '#999',
     marginRight: 10
   },
-  goPremiumContainer: {
+  scrollContainer: {
     backgroundColor: '#FFF',
     flex: 1
   },
@@ -176,6 +176,28 @@ const appStyles = StyleSheet.create({
   },
   lastButtonContainer: {
     marginTop: 20
+  },
+  searchResultsFilters: {
+    backgroundColor: '#111',
+    flexDirection: 'row'
+  },
+  searchResultsFilterItem: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingBottom: 20
+  },
+  searchResultsFilterText: {
+    color: '#FFF',
+    textTransform: 'uppercase',
+  },
+  searchResultsSummary: {
+    backgroundColor: '#DDD',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20
   }
 });
 

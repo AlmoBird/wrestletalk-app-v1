@@ -45,6 +45,7 @@ import RegisterScreen from '../screens/RegisterScreen';
 import LoginScreen from '../screens/LoginScreen';
 import PasswordScreen from '../screens/PasswordScreen';
 import SettingScreen from '../screens/SettingScreen';
+import SearchResultsScreen from '../screens/SearchResultsScreen';
 
 
 
@@ -78,6 +79,7 @@ function RootNavigator() {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Password" component={PasswordScreen} />
         <Stack.Screen name="Settings" component={SettingScreen} />
+        <Stack.Screen name="SearchResults" component={SearchResultsScreen} />
       </Stack.Group>
       <Stack.Group>
         <Stack.Screen name="Checkout" component={TopTabCheckoutNavigator} />

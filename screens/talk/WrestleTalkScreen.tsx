@@ -44,7 +44,7 @@ export default function WrestleTalkScreen({ navigation }: RootTabScreenProps<'Ta
   return (
     <ScrollView style={styles.ViewContainer}>
 
-      <TouchableOpacity onPress={() => { navigation.navigate('Settings')}}>
+      <TouchableOpacity onPress={() => { navigation.navigate('SearchResults')}}>
         <View style={styles.articleLargeVideo} >
           <Image style={styles.articleLargeVideo__Img} source={{
             uri: 'https://wrestletalk.upro.site/wp-content/uploads/2021/12/img-13-1-1.jpg',

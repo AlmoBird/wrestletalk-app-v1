@@ -25,6 +25,11 @@ export default function WrestleTalkScreen({ navigation }: RootTabScreenProps<'Ta
     },
   ]
   const numCols = 2;
+  const articletags = [
+    { name: 'Edge' },
+    { name: 'Releases' },
+    { name: 'Raw' }
+]
 
   /*
   return (
@@ -73,10 +78,19 @@ export default function WrestleTalkScreen({ navigation }: RootTabScreenProps<'Ta
                 <View style={styles.articleLarge__Details}>
                   <Text style={styles.articleLarge__title}>Buddy Murphy Teases AEW Casino Ladder Match Appearance</Text>
                   <View style={styles.articleLarge__meta}>
-                    <Text>10h</Text>
-                    <Text>Liam Winnard</Text>
-                    <View>
-                      <Text>Edge</Text>
+                    <Text style={[styles.articleLarge__metaText, styles.articleLarge__metaTime]}>10h</Text>
+                    <Text style={[styles.articleLarge__metaText]}>Liam Winnard</Text>
+                    <View style={styles.articleTagsContainer}>
+                      <FlatList 
+                          style={styles.TopicsList}
+                          horizontal
+                          showsHorizontalScrollIndicator={false}
+                          keyExtractor={tag => tag.name} 
+                          data={articletags}
+                          renderItem={({ item }) => {
+                              return <Text style={styles.TopicsTags}>{item.name}</Text>
+                          }}
+                      ></FlatList>
                     </View>
                   </View>
                 </View>
@@ -230,9 +244,21 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     textTransform: 'uppercase',
+    marginBottom: 15
   },
   articleLarge__meta: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  articleLarge__metaText: {
+    fontSize: 12,
+    fontWeight: 'bold'
+  },
+  articleLarge__metaTime: {
+    paddingRight: 15,
+    marginRight: 15,
+    borderRightWidth: 1,
+    borderRightColor: 'rgba(255,255,255,0.6)'
   },
   articleLargeVideo: {
     borderRadius: 7,  
@@ -331,5 +357,22 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
     textTransform: 'uppercase',
-  }
+  },
+  articleTagsContainer: {
+    flex: 1
+  },
+  TopicsList: {
+    marginLeft: 20,
+    fontSize: 12,
+  },
+  TopicsTags: {
+    paddingVertical: 2,
+    paddingHorizontal: 8,
+    borderRadius: 4,
+    textTransform: 'uppercase',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.7)',
+    marginRight: 5,
+    fontSize: 9
+  },
 });

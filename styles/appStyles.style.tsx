@@ -13,6 +13,10 @@ const appStyles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold'
   },
+  subheading: {
+    fontSize: 20,
+    fontWeight: 'bold'
+  },
   text: {
     color: '#999'
   },
@@ -158,6 +162,20 @@ const appStyles = StyleSheet.create({
   },
   authActionButtonText: {
     color: '#FFF'
+  },
+  settingsSwitchContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 5,
+    borderBottomWidth: 1,
+    borderBottomColor: '#DDD'
+  },
+  settingsSwitchText: {
+    fontSize: 16
+  },
+  lastButtonContainer: {
+    marginTop: 20
   }
 });
 

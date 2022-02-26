@@ -1,5 +1,6 @@
 import { StyleSheet, ScrollView, ImageBackground, FlatList, TouchableOpacity, Image } from 'react-native';
 import { Entypo, Foundation } from '@expo/vector-icons'; 
+import { LinearGradient } from "expo-linear-gradient";
 
 import { Text, View } from '../../components/Themed';
 import { RootTabScreenProps } from '../../types';
@@ -59,12 +60,32 @@ export default function WrestleTalkScreen({ navigation }: RootTabScreenProps<'Ta
 
       <TouchableOpacity onPress={() => { navigation.navigate('Article'), navigation.setParams({ articleTitle: 'Buddy Murphy Teases AEW Casino Ladder Match Appearance'})}}>
         <View style={styles.articleLarge} >
-          <Image style={styles.articleLarge__Img} source={{
+          <ImageBackground style={styles.articleLarge__Img} source={{
             uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-1.jpg',
-          }}></Image>
-          <View style={styles.articleLarge__Details}>
-            <Text style={styles.articleLarge__title}>Buddy Murphy Teases AEW Casino Ladder Match Appearance</Text>
-          </View>
+          }}>
+
+            <LinearGradient
+              colors={["rgba(0,0,0,1)", "rgba(0,0,0,0)"]}
+              start={[1, 0.9]}
+              end={[1, 0.3]}
+              style={styles.articleLarge__linearGradient}
+              >
+                <View style={styles.articleLarge__Details}>
+                  <Text style={styles.articleLarge__title}>Buddy Murphy Teases AEW Casino Ladder Match Appearance</Text>
+                  <View style={styles.articleLarge__meta}>
+                    <Text>10h</Text>
+                    <Text>Liam Winnard</Text>
+                    <View>
+                      <Text>Edge</Text>
+                    </View>
+                  </View>
+                </View>
+            </LinearGradient>
+          </ImageBackground>
+
+          
+          
+         
         </View>
       </TouchableOpacity>
 
@@ -188,9 +209,17 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     resizeMode: 'cover'
   },
+  articleLarge__linearGradient: {
+    width: '100%',
+    height: '100%',
+    opacity: 0.95,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   articleLarge__Details: {
-    padding: 15,
-    backgroundColor: 'rgba(0,0,0, 0.6)',
+    paddingHorizontal: 30,
+    paddingBottom: 15,
+    backgroundColor: 'rgba(0,0,0, 0)',
     position: "absolute",
     bottom: 0,
     width: '100%',
@@ -201,6 +230,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     textTransform: 'uppercase',
+  },
+  articleLarge__meta: {
+    flexDirection: 'row'
   },
   articleLargeVideo: {
     borderRadius: 7,  

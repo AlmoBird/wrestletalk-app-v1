@@ -1,5 +1,8 @@
 import { StyleSheet, ScrollView, ImageBackground, FlatList, TouchableOpacity, Image, View, Text, Button } from 'react-native';
 import { AntDesign, Feather } from '@expo/vector-icons'; 
+import { LinearGradient } from "expo-linear-gradient";
+
+import { Ionicons, Entypo } from '@expo/vector-icons'; 
 
 import { RootTabScreenProps } from '../../types';
 
@@ -7,18 +10,55 @@ const wrestleTalkHighlight = '#F00053'
 
 export default function ArticleScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
 
+  const articletags = [
+    { name: 'Edge' },
+    { name: 'Releases' },
+    { name: 'Raw' }
+  ]
 
   return (
     <ScrollView style={styles.articleContainer}>
 
+      <Ionicons style={styles.arrowBack} name="arrow-back-circle" size={36} color="red" />
+      <View style={styles.arrowBackBackground}></View>
+
       <View style={styles.article} >
-        <Image style={styles.articleImg} source={{
+        <ImageBackground style={styles.articleImg} source={{
           uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-1.jpg',
-        }}></Image>
-        <View style={styles.articleDetails}>
-          <Text style={styles.title}>Buddy Murphy Teases AEW Casino Ladder Match Appearance</Text>
-        </View>
+        }}>
+          <LinearGradient
+              colors={["rgba(0,0,0,1)", "rgba(0,0,0,0)"]}
+              start={[1, 0.9]}
+              end={[1, 0.3]}
+              style={styles.articleLarge__linearGradient}
+              >
+                <View style={styles.articleLarge__Details}>
+                  <Text style={styles.articleLarge__title}>Buddy Murphy Teases AEW Casino Ladder Match Appearance</Text>
+                  <View style={styles.articleTagsContainer}>
+                    <FlatList 
+                        style={styles.TopicsList}
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        keyExtractor={tag => tag.name} 
+                        data={articletags}
+                        renderItem={({ item }) => {
+                            return <Text style={styles.TopicsTags}>{item.name}</Text>
+                        }}
+                    ></FlatList>
+                  </View>
+                  
+                  <View style={styles.articleLarge__meta}>
+                    <Text style={[styles.articleLarge__metaText, styles.articleLarge__metaTime]}>10h</Text>
+                    <Text style={[styles.articleLarge__metaText]}>Liam Winnard</Text>
+                  </View>
+                </View>
+
+                <Entypo style={styles.shareIcon} name="share" size={16} color="white" />
+                <View style={styles.shareIconBackground}></View>
+          </LinearGradient>
+        </ImageBackground>
       </View>
+      
 
       <View>
         <Text style={styles.articleText}>WWE Legend and XFL co-owner Dwayne “The Rock” Johnson is set to be a part of the NBC pre-game festivities at the NFL’s Super Bowl LVI this Sunday.</Text>
@@ -113,7 +153,7 @@ const styles = StyleSheet.create({
   },
   article: {
     borderRadius: 10,  
-    height: 230,
+    height: 260,
     marginBottom: 20
   },
   articleImg: {
@@ -204,5 +244,95 @@ const styles = StyleSheet.create({
   },
   commentIndividual__likesActionActive: {
 
-  }
+  },
+  articleLarge__linearGradient: {
+    width: '100%',
+    height: '100%',
+    opacity: 0.95,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  articleLarge__Details: {
+    paddingHorizontal: 30,
+    paddingBottom: 20,
+    backgroundColor: 'rgba(0,0,0, 0)',
+    position: "absolute",
+    bottom: 0,
+    width: '100%',
+    borderRadius: 7
+  },
+  articleLarge__title: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+    textTransform: 'uppercase',
+    marginBottom: 10
+  },
+  articleLarge__meta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  articleLarge__metaText: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: '#FFF'
+  },
+  articleLarge__metaTime: {
+    paddingRight: 15,
+    marginRight: 15,
+    borderRightWidth: 1,
+    borderRightColor: 'rgba(255,255,255,0.6)'
+  },
+  articleTagsContainer: {
+    flex: 1,
+    width: '100%',
+    marginBottom: 10
+  },
+  TopicsList: {
+    fontSize: 12,
+    width: '100%'
+  },
+  TopicsTags: {
+    paddingVertical: 2,
+    paddingHorizontal: 8,
+    borderRadius: 4,
+    textTransform: 'uppercase',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.7)',
+    marginRight: 5,
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#FFF'
+  },
+  arrowBack: {
+    position: 'absolute',
+    zIndex: 999,
+    top: 10,
+    left: 10,
+  },
+  arrowBackBackground: {
+    width: 26,
+    height: 26,
+    borderRadius: 18,
+    position: 'absolute',
+    zIndex: 100,
+    top: 15,
+    left: 12,
+    backgroundColor: '#FFF'
+  },
+  shareIcon: {
+    position: 'absolute',
+    bottom: 22,
+    right: 22,
+  },
+  shareIconBackground: {
+    width: 30,
+    height: 30,
+    borderRadius: 18,
+    position: 'absolute',
+    zIndex: 100,
+    bottom: 15,
+    right: 14,
+    backgroundColor: 'rgba(255,255,255,0.2)'
+  },
 });

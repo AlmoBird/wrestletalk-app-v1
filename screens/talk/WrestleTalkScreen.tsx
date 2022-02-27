@@ -53,7 +53,7 @@ export default function WrestleTalkScreen({ navigation }: RootTabScreenProps<'Ta
       <TouchableOpacity onPress={() => { navigation.navigate('SearchResults')}}>
         <View style={styles.articleLargeVideo} >
           <Image style={styles.articleLargeVideo__Img} source={{
-            uri: 'https://wrestletalk.upro.site/wp-content/uploads/2021/12/img-13-1-1.jpg',
+            uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-3.jpg',
           }}></Image>
           <View style={styles.articleLargeVideo__Details}>
             <Text style={styles.articleLargeVideo__title}>DAMIAN PRIEST VS. SHEAMUS TO BE TABLES MATCH AT WWE EXTREME RULES?</Text>
@@ -95,31 +95,53 @@ export default function WrestleTalkScreen({ navigation }: RootTabScreenProps<'Ta
                   </View>
                 </View>
             </LinearGradient>
-          </ImageBackground>
-
-          
-          
-         
+          </ImageBackground>         
         </View>
       </TouchableOpacity>
 
       <View style={styles.articleHalfContainer} >
         <View style={styles.articleHalf} >
-          <Image style={styles.articleHalf__Img} source={{
+          <ImageBackground style={styles.articleHalf__Img} source={{
             uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-3.jpg',
-          }}></Image>
-          <View style={styles.articleHalf__Details}>
-            <Text style={styles.articleHalf__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
-          </View> 
+          }}>
+            <LinearGradient
+              colors={["rgba(0,0,0,1)", "rgba(0,0,0,0)"]}
+              start={[1, 0.8]}
+              end={[1, 0.2]}
+              style={styles.articleLarge__linearGradient}
+              >
+                <View style={styles.articleHalf__Details}>
+                <Text style={styles.articleHalf__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+                  <View style={styles.articleLarge__meta}>
+                    <Text style={[styles.articleLarge__metaText, styles.articleLarge__metaTime]}>10h</Text>
+                    <Text style={[styles.articleLarge__metaText]}>Liam Winnard</Text>
+                  </View>
+                </View>
+            </LinearGradient>
+          </ImageBackground>
+          
         </View>
 
         <View style={styles.articleHalf} >
-          <Image style={styles.articleHalf__Img} source={{
+          <ImageBackground style={styles.articleHalf__Img} source={{
             uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-1.jpg',
-          }}></Image>
-          <View style={styles.articleHalf__Details}>
-            <Text style={styles.articleHalf__title}>BRITT BAKER SAYS WWE ‘DEFINITELY’ HAD INTEREST IN HER2</Text>
-          </View>
+          }}>
+            <LinearGradient
+              colors={["rgba(0,0,0,1)", "rgba(0,0,0,0)"]}
+              start={[1, 0.8]}
+              end={[1, 0.2]}
+              style={styles.articleLarge__linearGradient}
+              >
+                <View style={styles.articleHalf__Details}>
+                <Text style={styles.articleHalf__title}>BRITT BAKER SAYS WWE ‘DEFINITELY’ HAD INTEREST IN HER2</Text>
+                  <View style={styles.articleLarge__meta}>
+                    <Text style={[styles.articleLarge__metaText, styles.articleLarge__metaTime]}>10h</Text>
+                    <Text style={[styles.articleLarge__metaText]}>Liam Winnard</Text>
+                  </View>
+                </View>
+            </LinearGradient>
+          </ImageBackground>
+
           <View style={styles.articleType} ></View>
           <Foundation style={styles.articleType__Video} name="sound" size={18} color="black" />
         </View>
@@ -231,7 +253,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   articleLarge__Details: {
-    paddingHorizontal: 30,
+    paddingHorizontal: 20,
     paddingBottom: 15,
     backgroundColor: 'rgba(0,0,0, 0)',
     position: "absolute",
@@ -300,8 +322,8 @@ const styles = StyleSheet.create({
     resizeMode: 'cover'
   },
   articleHalf__Details: {
-    padding: 15,
-    backgroundColor: 'rgba(0,0,0, 0.6)',
+    padding: 20,
+    backgroundColor: 'transparent',
     position: "absolute",
     bottom: 0,
     width: '100%',
@@ -309,9 +331,10 @@ const styles = StyleSheet.create({
   },
   articleHalf__title: {
     color: "white",
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: "bold",
     textTransform: 'uppercase',
+    marginBottom: 5
   },
   articleSmall: {
     borderRadius: 7,  

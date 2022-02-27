@@ -46,6 +46,10 @@ import LoginScreen from '../screens/LoginScreen';
 import PasswordScreen from '../screens/PasswordScreen';
 import SettingScreen from '../screens/SettingScreen';
 import SearchResultsScreen from '../screens/SearchResultsScreen';
+import CurrentRoundScreen from '../screens/league/CurrentRoundScreen';
+import ResultsScreen from '../screens/league/ResultsScreen';
+import StandingsScreen from '../screens/league/StandingsScreen';
+import PastSeasonsScreen from '../screens/league/PastSeasonsScreen';
 
 
 
@@ -99,6 +103,7 @@ function TopTabWrestleTalkNavigator() {
   return (
     <TopTab.Navigator screenOptions={{
       tabBarLabelStyle: { fontSize: 12, fontWeight: 'bold' },
+      tabBarItemStyle: { padding: 0 },
       tabBarStyle: { backgroundColor: '#EEE' },
       tabBarIndicatorStyle: { backgroundColor: '#333', height: 3 },
       tabBarActiveTintColor: '#333',
@@ -116,6 +121,7 @@ function TopTabShopNavigator() {
   return (
     <TopTab.Navigator screenOptions={{
       tabBarLabelStyle: { fontSize: 12, fontWeight: 'bold' },
+      tabBarItemStyle: { padding: 0 },
       tabBarStyle: { backgroundColor: '#EEE' },
       tabBarIndicatorStyle: { backgroundColor: '#333', height: 3 },
       tabBarActiveTintColor: '#333',
@@ -133,6 +139,7 @@ function TopTabCheckoutNavigator() {
   return (
     <TopTab.Navigator screenOptions={{
       tabBarLabelStyle: { fontSize: 12, fontWeight: 'bold' },
+      tabBarItemStyle: { padding: 0 },
       tabBarStyle: { backgroundColor: '#EEE' },
       tabBarIndicatorStyle: { backgroundColor: '#333', height: 3 },
       tabBarActiveTintColor: '#333',
@@ -142,6 +149,24 @@ function TopTabCheckoutNavigator() {
       <TopTab.Screen name="Shipping" component={CheckoutShippingScreen} />
       <TopTab.Screen name="Payment" component={CheckoutPaymentScreen} />
       <TopTab.Screen name="Review" component={CheckoutReviewScreen} />
+    </TopTab.Navigator>
+  );
+}
+
+function TopTabLeagueNavigator() {
+  return (
+    <TopTab.Navigator screenOptions={{
+      tabBarLabelStyle: { fontSize: 12, fontWeight: 'bold' },
+      tabBarItemStyle: {padding: 0},
+      tabBarStyle: { backgroundColor: '#EEE' },
+      tabBarIndicatorStyle: { backgroundColor: '#333', height: 3 },
+      tabBarActiveTintColor: '#333',
+      tabBarInactiveTintColor: '#999'
+    }}>
+      <TopTab.Screen name="Curr Round" component={CurrentRoundScreen} />
+      <TopTab.Screen name="Results" component={ResultsScreen} />
+      <TopTab.Screen name="Standings" component={StandingsScreen} />
+      <TopTab.Screen name="Past Seasons" component={PastSeasonsScreen} />
     </TopTab.Navigator>
   );
 }
@@ -190,7 +215,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="TabThree"
-        component={TabThreeScreen}
+        component={TopTabLeagueNavigator}
         options={{
           title: 'WRESTLELEAGUE',
           tabBarIcon: ({ color }) => <Image source={require('./../assets/images/league.png')} style={styles.navbarIcon} />,

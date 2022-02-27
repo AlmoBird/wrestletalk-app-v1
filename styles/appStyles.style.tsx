@@ -198,6 +198,12 @@ const appStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20
+  },
+
+  // LEAGUE 
+  leagueBanner: {
+    resizeMode: 'contain',
+    width: '100%'
   }
 });
 

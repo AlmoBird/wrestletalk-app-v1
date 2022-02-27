@@ -57,6 +57,22 @@ export default function WrestleTalkScreen({ navigation }: RootTabScreenProps<'Ta
           }}></Image>
           <View style={styles.articleLargeVideo__Details}>
             <Text style={styles.articleLargeVideo__title}>DAMIAN PRIEST VS. SHEAMUS TO BE TABLES MATCH AT WWE EXTREME RULES?</Text>
+            <View style={styles.articleLargeVideo__meta}>
+              <Text style={[styles.articleLargeVideo__metaText, styles.articleLarge__metaTime]}>10h</Text>
+              <Text style={[styles.articleLargeVideo__metaText]}>Liam Winnard</Text>
+              <View style={styles.articleLargeVideo__TagsContainer}>
+                <FlatList 
+                    style={styles.articleLargeVideo__TopicsList}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    keyExtractor={tag => tag.name} 
+                    data={articletags}
+                    renderItem={({ item }) => {
+                        return <Text style={styles.articleLargeVideo__TopicsTags}>{item.name}</Text>
+                    }}
+                ></FlatList>
+              </View>
+            </View>
           </View>
           <View style={styles.articleType} ></View>
           <Entypo style={styles.articleType__Video} name="controller-play" size={18} color="black" />
@@ -283,9 +299,12 @@ const styles = StyleSheet.create({
     borderRightColor: 'rgba(255,255,255,0.6)'
   },
   articleLargeVideo: {
-    borderRadius: 7,  
     marginBottom: 20,
-    overflow: 'hidden'
+    overflow: 'hidden',
+    borderBottomColor: '#CCC',
+    borderBottomWidth: 1,
+    paddingBottom: 15,
+    backgroundColor: '#FFF'
   },
   articleLargeVideo__Img: {
     height: 230,
@@ -302,6 +321,41 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     textTransform: 'uppercase',
+    marginBottom: 10
+  },
+  articleLargeVideo__meta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FFF'
+  },
+  articleLargeVideo__metaText: {
+    fontSize: 12,
+    color: '#000'
+  },
+  articleLargeVideo__metaTime: {
+    paddingRight: 15,
+    marginRight: 15,
+    borderRightWidth: 1,
+    borderRightColor: 'rgba(255,255,255,0.6)'
+  },
+  articleLargeVideo__TagsContainer: {
+    flex: 1,
+    backgroundColor: '#FFF'
+  },
+  articleLargeVideo__TopicsList: {
+    marginLeft: 20,
+    fontSize: 12,
+  },
+  articleLargeVideo__TopicsTags: {
+    paddingVertical: 2,
+    paddingHorizontal: 8,
+    borderRadius: 4,
+    textTransform: 'uppercase',
+    borderWidth: 1,
+    borderColor: 'rgba(0,0,0,0.7)',
+    marginRight: 5,
+    fontSize: 9,
+    color: '#000'
   },
   articleHalfContainer: {
     display: 'flex',

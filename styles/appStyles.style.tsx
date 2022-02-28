@@ -1,6 +1,240 @@
 import { StyleSheet } from 'react-native';
 
 const appStyles = StyleSheet.create({
+  // TALK
+  ViewContainer: {
+    width: '100%',
+    flex: 1,
+    backgroundColor: 'white',
+    padding: 20,
+    display: 'flex',
+    overflow: 'scroll',
+  },
+  articleType: {
+    position: 'absolute',
+    backgroundColor: 'red',
+    paddingHorizontal: 75,
+    paddingVertical: 36,
+    right: -60,
+    top: -40,
+    transform: [
+      { rotateZ: "45deg" }
+    ]
+  },
+  articleType__Video: {
+    color: 'white',
+    position: 'absolute',
+    right: 13,
+    top: 10,
+    zIndex: 10,
+  },
+  articleLarge: {
+    borderRadius: 7,  
+    height: 230,
+    marginBottom: 20,
+    overflow: 'hidden'
+  },
+  articleLarge__Img: {
+    height: '100%',
+    borderRadius: 7,
+    resizeMode: 'cover'
+  },
+  articleLarge__linearGradient: {
+    width: '100%',
+    height: '100%',
+    opacity: 0.95,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  articleLarge__Details: {
+    paddingHorizontal: 20,
+    paddingBottom: 15,
+    backgroundColor: 'rgba(0,0,0, 0)',
+    position: "absolute",
+    bottom: 0,
+    width: '100%',
+    borderRadius: 7
+  },
+  articleLarge__title: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+    textTransform: 'uppercase',
+    marginBottom: 15
+  },
+  articleLarge__meta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  articleLarge__metaText: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: '#FFF'
+  },
+  articleLarge__metaTime: {
+    paddingRight: 15,
+    marginRight: 15,
+    borderRightWidth: 1,
+    borderRightColor: 'rgba(255,255,255,0.6)'
+  },
+  articleLargeVideo: {
+    marginBottom: 20,
+    overflow: 'hidden',
+    borderBottomColor: '#CCC',
+    borderBottomWidth: 1,
+    paddingBottom: 15,
+    backgroundColor: '#FFF'
+  },
+  articleLargeVideo__Img: {
+    height: 230,
+    borderRadius: 7,
+    resizeMode: 'cover'
+  },
+  articleLargeVideo__Details: {
+    paddingVertical: 10,
+    backgroundColor: 'white',
+    width: '100%',
+  },
+  articleLargeVideo__title: {
+    color: "black",
+    fontSize: 16,
+    fontWeight: "bold",
+    textTransform: 'uppercase',
+    marginBottom: 10
+  },
+  articleLargeVideo__meta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FFF'
+  },
+  articleLargeVideo__metaText: {
+    fontSize: 12,
+    color: '#000'
+  },
+  articleLargeVideo__metaTime: {
+    paddingRight: 15,
+    marginRight: 15,
+    borderRightWidth: 1,
+    borderRightColor: 'rgba(255,255,255,0.6)'
+  },
+  articleLargeVideo__TagsContainer: {
+    flex: 1,
+    backgroundColor: '#FFF'
+  },
+  articleLargeVideo__TopicsList: {
+    marginLeft: 20,
+    fontSize: 12,
+  },
+  articleLargeVideo__TopicsTags: {
+    paddingVertical: 2,
+    paddingHorizontal: 8,
+    borderRadius: 4,
+    textTransform: 'uppercase',
+    borderWidth: 1,
+    borderColor: 'rgba(0,0,0,0.7)',
+    marginRight: 5,
+    fontSize: 9,
+    color: '#000'
+  },
+  articleHalfContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: '#FFF'
+  },
+  articleHalf: {
+    borderRadius: 7,  
+    width: '48%',
+    height: 180,
+    marginBottom: 20,
+    overflow: 'hidden'
+  },
+  articleHalf__Img: {
+    height: '100%',
+    borderRadius: 7,
+    resizeMode: 'cover'
+  },
+  articleHalf__Details: {
+    padding: 20,
+    backgroundColor: 'transparent',
+    position: "absolute",
+    bottom: 0,
+    width: '100%',
+    borderRadius: 7
+  },
+  articleHalf__title: {
+    color: "white",
+    fontSize: 12,
+    fontWeight: "bold",
+    textTransform: 'uppercase',
+    marginBottom: 5
+  },
+  articleSmall: {
+    borderRadius: 7,  
+    height: 100,
+    marginBottom: 20,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: 'white',
+    overflow: 'hidden'
+  },
+  articleSmall__Img: {
+    width: '29%',
+    borderTopLeftRadius: 7,
+    borderBottomLeftRadius: 7,
+    resizeMode: 'cover'
+  },
+  articleSmall__Details: {
+    flex: 1,
+    padding: 15,
+    backgroundColor: 'white',
+    borderTopRightRadius: 7,
+    borderBottomRightRadius: 7,
+    borderWidth: 1,
+    borderColor: '#DDD',
+    marginRight: 1
+  },
+  articleSmall__title: {
+    color: "black",
+    fontSize: 14,
+    fontWeight: "bold",
+    textTransform: 'uppercase',
+  },
+  articleTiny: {
+    height: 50,
+    marginBottom: 20,
+    backgroundColor: 'white',
+    borderBottomWidth: 1,
+    borderBottomColor: '#DDD',
+  },
+  articleTiny__title: {
+    color: "black",
+    fontSize: 14,
+    fontWeight: "bold",
+    textTransform: 'uppercase',
+  },
+  articleTagsContainer: {
+    flex: 1
+  },
+  TopicsList: {
+    marginLeft: 20,
+    fontSize: 12,
+  },
+  TopicsTags: {
+    paddingVertical: 2,
+    paddingHorizontal: 8,
+    borderRadius: 4,
+    textTransform: 'uppercase',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.7)',
+    marginRight: 5,
+    fontSize: 9
+  },
+
+
+
+
   container: {
     backgroundColor: '#FFF',
     flex: 1,

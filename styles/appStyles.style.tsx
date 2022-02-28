@@ -210,6 +210,106 @@ const appStyles = StyleSheet.create({
     backgroundColor: '#FFF',
     flex: 1
   },
+  league_title: {
+    textAlign: 'center',
+    marginBottom: 15
+  },
+  league_info: {
+    textAlign: 'center',
+    color: '#777',
+    lineHeight: 20,
+    paddingHorizontal: '10%',
+    marginBottom: 20
+  },
+  league_button: {
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 10
+  },
+  league_button__text: {
+    color: '#FFF',
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    fontSize: 12,
+    letterSpacing: 0.5
+  },
+  league_button__become: {
+    backgroundColor: '#000'
+  },
+  league_button__login: {
+    backgroundColor: '#ED6850'
+  },
+  league_roundDetails: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginBottom: 25
+  },
+  league_roundTime: {
+
+  },
+  league_roundTime__text: {
+    color: '#FFF',
+    fontWeight: 'bold'
+  },
+  league_bg_gradient: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+    color: '#FFF',
+    borderRadius: 3
+  },
+  league_round: {
+    marginBottom: 20
+  },
+  league_roundTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10
+  },
+  league_headerText: {
+    fontWeight: 'bold',
+    fontSize: 16
+  },
+  league_standing_row: {
+    flexDirection: 'row',
+    paddingHorizontal: 20,
+    paddingVertical: 10
+  },
+  league_standing_rowActive: {
+    backgroundColor: '#CA1917',
+  },
+  league_standing_rankColumn: {
+    width: '20%',
+    fontSize: 16
+  },
+  league_standing_userColumn: {
+    width: '60%',
+    fontSize: 16
+  },
+  league_standing_pointsColumn: {
+    width: '20%',
+    textAlign: 'right',
+    fontSize: 16
+  },
+  league_standing_textActive: {
+    color: '#FFF',
+    fontWeight: 'bold'
+  },
+  league_past_seasonsColumn: {
+    width: '70%',
+    fontSize: 16
+  },
+  league_past_dateColumn: {
+    width: '30%',
+    textAlign: 'right',
+    fontSize: 16
+  },
+  league_season_rowEven: {
+    backgroundColor: '#F3F3F3'
+  }
 });
 
 export default appStyles;

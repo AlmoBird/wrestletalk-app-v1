@@ -163,7 +163,7 @@ function TopTabLeagueNavigator() {
       tabBarActiveTintColor: '#333',
       tabBarInactiveTintColor: '#999'
     }}>
-      <TopTab.Screen name="Curr Round" component={CurrentRoundScreen} />
+      <TopTab.Screen name="Curr. Round" component={CurrentRoundScreen} />
       <TopTab.Screen name="Results" component={ResultsScreen} />
       <TopTab.Screen name="Standings" component={StandingsScreen} />
       <TopTab.Screen name="Past Seasons" component={PastSeasonsScreen} />

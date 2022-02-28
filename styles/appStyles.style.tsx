@@ -201,10 +201,15 @@ const appStyles = StyleSheet.create({
   },
 
   // LEAGUE 
-  leagueBanner: {
+  league_banner: {
     resizeMode: 'contain',
-    width: '100%'
-  }
+    width: '100%',
+    height: 232
+  },
+  league_container: {
+    backgroundColor: '#FFF',
+    flex: 1
+  },
 });
 
 export default appStyles;

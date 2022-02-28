@@ -4,7 +4,7 @@ import appStyles from '../../styles/appStyles.style';
 
 export default function LeagueBannerComponent({ navigation }: any) {
   return (
-    <Image style={appStyles.leagueBanner} source={require('../../assets/images/league_banner.png')}></Image>
+    <Image style={appStyles.league_banner} source={require('../../assets/images/league_banner.png')}></Image>
   );
 }
 

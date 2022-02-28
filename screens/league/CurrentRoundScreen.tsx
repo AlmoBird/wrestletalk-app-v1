@@ -5,7 +5,7 @@ import appStyles from '../../styles/appStyles.style';
 
 export default function CurrentRoundScreen({ navigation }: any) {
   return (
-    <ScrollView contentContainerStyle={styles.leagueContainerView}>
+    <ScrollView style={appStyles.league_container}>
        <LeagueBannerComponent></LeagueBannerComponent>
        <View style={appStyles.container}>
          <Text style={appStyles.title}>Adsad</Text>
@@ -15,7 +15,5 @@ export default function CurrentRoundScreen({ navigation }: any) {
 }
 
 const styles = StyleSheet.create({
-  leagueContainerView: {
-    justifyContent: 'flex-start'
-  }
+
 });

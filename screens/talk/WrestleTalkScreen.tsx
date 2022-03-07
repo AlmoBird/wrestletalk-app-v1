@@ -51,7 +51,7 @@ export default function WrestleTalkScreen({ navigation }: RootTabScreenProps<'Ta
   return (
     <ScrollView style={appStyles.ViewContainer}>
 
-      <TouchableOpacity onPress={() => { navigation.navigate('SearchResults')}}>
+      <TouchableOpacity onPress={() => { navigation.navigate('Settings')}}>
         <View style={appStyles.articleLargeVideo} >
           <Image style={appStyles.articleLargeVideo__Img} source={{
             uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-3.jpg',
@@ -116,53 +116,55 @@ export default function WrestleTalkScreen({ navigation }: RootTabScreenProps<'Ta
         </View>
       </TouchableOpacity>
 
-      <View style={appStyles.articleHalfContainer} >
-        <View style={appStyles.articleHalf} >
-          <ImageBackground style={appStyles.articleHalf__Img} source={{
-            uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-3.jpg',
-          }}>
-            <LinearGradient
-              colors={["rgba(0,0,0,1)", "rgba(0,0,0,0)"]}
-              start={[1, 0.8]}
-              end={[1, 0.2]}
-              style={appStyles.articleLarge__linearGradient}
-              >
-                <View style={appStyles.articleHalf__Details}>
-                <Text style={appStyles.articleHalf__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
-                  <View style={appStyles.articleLarge__meta}>
-                    <Text style={[appStyles.articleLarge__metaText, appStyles.articleLarge__metaTime]}>10h</Text>
-                    <Text style={[appStyles.articleLarge__metaText]}>Liam Winnard</Text>
+      <TouchableOpacity onPress={() => { navigation.navigate('SearchResults')}}>
+        <View style={appStyles.articleHalfContainer} >
+          <View style={appStyles.articleHalf} >
+            <ImageBackground style={appStyles.articleHalf__Img} source={{
+              uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-3.jpg',
+            }}>
+              <LinearGradient
+                colors={["rgba(0,0,0,1)", "rgba(0,0,0,0)"]}
+                start={[1, 0.8]}
+                end={[1, 0.2]}
+                style={appStyles.articleLarge__linearGradient}
+                >
+                  <View style={appStyles.articleHalf__Details}>
+                  <Text style={appStyles.articleHalf__title}>KEVIN OWENS REACTS TO SPECULATION HE’S UNHAPPY IN WWE2</Text>
+                    <View style={appStyles.articleLarge__meta}>
+                      <Text style={[appStyles.articleLarge__metaText, appStyles.articleLarge__metaTime]}>10h</Text>
+                      <Text style={[appStyles.articleLarge__metaText]}>Liam Winnard</Text>
+                    </View>
                   </View>
-                </View>
-            </LinearGradient>
-          </ImageBackground>
-          
-        </View>
+              </LinearGradient>
+            </ImageBackground>
+            
+          </View>
 
-        <View style={appStyles.articleHalf} >
-          <ImageBackground style={appStyles.articleHalf__Img} source={{
-            uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-1.jpg',
-          }}>
-            <LinearGradient
-              colors={["rgba(0,0,0,1)", "rgba(0,0,0,0)"]}
-              start={[1, 0.8]}
-              end={[1, 0.2]}
-              style={appStyles.articleLarge__linearGradient}
-              >
-                <View style={appStyles.articleHalf__Details}>
-                <Text style={appStyles.articleHalf__title}>BRITT BAKER SAYS WWE ‘DEFINITELY’ HAD INTEREST IN HER2</Text>
-                  <View style={appStyles.articleLarge__meta}>
-                    <Text style={[appStyles.articleLarge__metaText, appStyles.articleLarge__metaTime]}>10h</Text>
-                    <Text style={[appStyles.articleLarge__metaText]}>Liam Winnard</Text>
+          <View style={appStyles.articleHalf} >
+            <ImageBackground style={appStyles.articleHalf__Img} source={{
+              uri: 'http://wrestletalk.upro.site/wp-content/uploads/2021/12/img-3-1.jpg',
+            }}>
+              <LinearGradient
+                colors={["rgba(0,0,0,1)", "rgba(0,0,0,0)"]}
+                start={[1, 0.8]}
+                end={[1, 0.2]}
+                style={appStyles.articleLarge__linearGradient}
+                >
+                  <View style={appStyles.articleHalf__Details}>
+                  <Text style={appStyles.articleHalf__title}>BRITT BAKER SAYS WWE ‘DEFINITELY’ HAD INTEREST IN HER2</Text>
+                    <View style={appStyles.articleLarge__meta}>
+                      <Text style={[appStyles.articleLarge__metaText, appStyles.articleLarge__metaTime]}>10h</Text>
+                      <Text style={[appStyles.articleLarge__metaText]}>Liam Winnard</Text>
+                    </View>
                   </View>
-                </View>
-            </LinearGradient>
-          </ImageBackground>
+              </LinearGradient>
+            </ImageBackground>
 
-          <View style={appStyles.articleType} ></View>
-          <Foundation style={appStyles.articleType__Video} name="sound" size={18} color="black" />
+            <View style={appStyles.articleType} ></View>
+            <Foundation style={appStyles.articleType__Video} name="sound" size={18} color="black" />
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
 
       <View style={appStyles.articleSmall} >
         <Image style={appStyles.articleSmall__Img} source={{

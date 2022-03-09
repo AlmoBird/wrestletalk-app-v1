@@ -16,7 +16,6 @@ export default function StandingsScreen({ navigation }: any) {
 
   const getStandings = async() => {
     const response = await leagueApi.get('/season/' + seasonId + '/standings')
-    console.log(response.data.standings)
     setStandings(response.data.standings)
   }
 
@@ -43,7 +42,7 @@ export default function StandingsScreen({ navigation }: any) {
           
         <View style={appStyles.league_standing_row}>
           <Text style={[appStyles.league_headerText, appStyles.league_standing_rankColumn]}>Rank</Text>
-          <Text style={[appStyles.league_headerText, appStyles.league_standing_userColumn]}>name</Text>
+          <Text style={[appStyles.league_headerText, appStyles.league_standing_userColumn]}>Name</Text>
           <Text style={[appStyles.league_headerText, appStyles.league_standing_pointsColumn]}>Points</Text>
         </View>
 

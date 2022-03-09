@@ -15,7 +15,6 @@ export default function PastSeasonsScreen({ navigation }: any) {4
 
   const getSeasons = async() => {
     const response = await leagueApi.get('/season/past')
-    console.log(response.data.seasons)
     setSeasons(response.data.seasons)
   }
 

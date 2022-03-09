@@ -503,6 +503,13 @@ const appStyles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10
   },
+  league_radioDefault: {
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    backgroundColor: '#EEE', 
+    padding: 5, 
+    marginBottom: 5
+  },
   league_headerText: {
     fontWeight: 'bold',
     fontSize: 16

@@ -5,6 +5,7 @@ import LeagueBannerComponent from './LeagueBannerComponent';
 import appStyles from '../../styles/appStyles.style';
 
 import leagueApi from '../../api/leagueApi';
+import { isOddRow } from './helperFunctions';
 
 export default function PastSeasonsScreen({ navigation }: any) {4
   const [seasons, setSeasons] = useState<any>([])
@@ -32,12 +33,6 @@ export default function PastSeasonsScreen({ navigation }: any) {4
     { season: 'Wrestle League Season 1', endDate: '07/06/2018'},
   ]
 
-  function isEvenRow(item: any) {
-     let ind = seasons.findIndex(season => season.title === item.season )
-
-     return ind % 2 == 0
-  };
-
   return (
     <ScrollView style={appStyles.league_container}>
        <LeagueBannerComponent></LeagueBannerComponent>
@@ -50,10 +45,10 @@ export default function PastSeasonsScreen({ navigation }: any) {4
         </View>
 
         <FlatList 
-            keyExtractor={season => season.title} 
+            keyExtractor={(item, index) => index.toString()} 
             data={seasons}
-            renderItem={({ item }) => {
-                return  <View style={[appStyles.league_standing_row, isEvenRow(item) ? appStyles.league_season_rowEven : null]}>
+            renderItem={({ item, index }) => {
+                return  <View style={[appStyles.league_standing_row, isOddRow(index) ? appStyles.league_season_rowEven : null]}>
                           <Text style={[appStyles.league_past_seasonsColumn]}>
                             {item.title}
                             </Text>

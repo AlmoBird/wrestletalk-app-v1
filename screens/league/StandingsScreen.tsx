@@ -47,7 +47,7 @@ export default function StandingsScreen({ navigation }: any) {
         </View>
 
         <FlatList 
-            keyExtractor={user => user.rank + user.name + user.points} 
+            keyExtractor={(item, index) => index.toString()} 
             data={standings}
             renderItem={({ item }) => {
                 return  <View style={[appStyles.league_standing_row, item.thisUser ? appStyles.league_standing_rowActive : null]}>

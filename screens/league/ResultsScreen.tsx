@@ -48,14 +48,14 @@ export default function ResultsScreen({ navigation }: any) {
             </View>
 
             <FlatList 
-                keyExtractor={user => user.rank + user.name + user.points} 
+                keyExtractor={(item, index) => index.toString()} 
                 data={round.markets}
                 renderItem={({ item }) => {
                     return  <View style={appStyles.league_round}>
                               <Text style={appStyles.league_roundTitle}>{item.title}</Text>
                               <RadioButton.Group onValueChange={newValue => setValue(newValue)} value={value}>
                               <FlatList 
-                                keyExtractor={user => user.rank + user.name + user.points} 
+                                keyExtractor={(item, index) => index.toString()} 
                                 data={item.choices}
                                 renderItem={({ item }) => {
                                   return  <View style={appStyles.league_radioDefault}>

@@ -83,7 +83,7 @@ export default function ResultsScreen({ navigation }: any) {
                                   data={marketItem.choices}
                                   renderItem={({ item }) => {
                                     return  <View style={[appStyles.league_radio, marketItem.outcome === item.id ? appStyles.league_radioOutcome : appStyles.league_radioDefault] }>
-                                              <RadioButton value={item.id} status={ marketItem.outcome === item.id ? 'checked' : 'unchecked' } color='white' uncheckedColor='#777'/>
+                                              <RadioButton value={item.id} status={ marketItem.outcome === item.id ? 'checked' : 'unchecked' } color='white' uncheckedColor='#777' disabled/>
                                               <Text style={[appStyles.league_radioText, marketItem.outcome === item.id ? appStyles.league_radioTextOutcome : null] }>{item.title}</Text>
                                             </View>
                                 }}>

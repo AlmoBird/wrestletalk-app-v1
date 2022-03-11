@@ -516,7 +516,7 @@ const appStyles = StyleSheet.create({
     backgroundColor: '#1B4C6A',
   },
   league_radioText: {
-
+    color: '#000'
   },
   league_radioTextOutcome: {
     color: '#FFF',

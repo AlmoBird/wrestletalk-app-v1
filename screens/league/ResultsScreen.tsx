@@ -64,7 +64,17 @@ export default function ResultsScreen({ navigation }: any) {
                 renderItem={({ item, index }) => {
                     let marketItem = item;
                     return  <View style={appStyles.league_round}>
-                              <Text style={appStyles.league_roundTitle}>{marketItem.title}</Text>
+                              <Text style={appStyles.league_roundTitle}>{marketItem.title.replace('[CORRECT SPELLINGS ONLY]', '')}</Text>
+
+                              { marketItem.isOpenField ?
+                                <View style={[appStyles.league_radio, appStyles.league_radioOutcome] }>
+                                  <RadioButton value={item.id} status='checked' color='white' uncheckedColor='#777'/>
+                                  <Text style={[appStyles.league_radioText, appStyles.league_radioTextOutcome] }>{marketItem.outcome}</Text>
+                                </View>
+                              :
+                                null
+                              }
+
                               <RadioButton.Group onValueChange={newValue => setValue(newValue)} value={value}>
                                 <FlatList 
                                   keyExtractor={(marketItem, index) => {

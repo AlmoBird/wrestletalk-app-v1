@@ -10,27 +10,36 @@ import leagueApi from '../../api/leagueApi';
 
 export default function ResultsScreen({ navigation }: any) {
   const [value, setValue] = useState('first');
-
-  const seasonId = '143eb23a-d354-4386-a1b8-2d102490683d';
   const [season, setSeason] = useState<any>([])
   const [round, setRound] = useState<any>([])
+  const [currentMarketIndex, setMarketIndex] = useState<any>();
+
 
   useEffect(() => {
     getSeason();
   }, []);
 
   const getSeason = async() => {
-    const response = await leagueApi.get('/season/' + seasonId)
-    console.log(response.data.season.rounds[0])
-    setSeason(response.data.season)
-    setRound(response.data.season.rounds[0])
+    const response = await leagueApi.get('/season/active')
+    console.log(response.data.seasons[0].rounds[0])
+    setSeason(response.data.seasons[0])
+    setRound(response.data.seasons[0].rounds[0])
   }
 
   return (
     <ScrollView style={appStyles.league_container}>
        <LeagueBannerComponent></LeagueBannerComponent>
-       <View style={appStyles.container}>
-            <Text style={[appStyles.title, appStyles.league_title]}>{round.title}</Text>
+
+       <FlatList 
+          data={season.rounds}
+          keyExtractor={(roundItem, roundIndex) => {
+            return roundIndex.toString()
+          }} 
+          renderItem={({ item }) => {
+            let roundItem = item;
+
+            return  <View style={appStyles.container}>
+            <Text style={[appStyles.title, appStyles.league_title]}>{roundItem.title}</Text>
 
             <View style={appStyles.league_roundDetails}>
               <Text>You scored </Text>
@@ -48,21 +57,26 @@ export default function ResultsScreen({ navigation }: any) {
             </View>
 
             <FlatList 
-                keyExtractor={(item, index) => index.toString()} 
-                data={round.markets}
-                renderItem={({ item }) => {
+                keyExtractor={(item, index) => {
+                  return index.toString()
+                }} 
+                data={roundItem.markets}
+                renderItem={({ item, index }) => {
+                    let marketItem = item;
                     return  <View style={appStyles.league_round}>
-                              <Text style={appStyles.league_roundTitle}>{item.title}</Text>
+                              <Text style={appStyles.league_roundTitle}>{marketItem.title}</Text>
                               <RadioButton.Group onValueChange={newValue => setValue(newValue)} value={value}>
-                              <FlatList 
-                                keyExtractor={(item, index) => index.toString()} 
-                                data={item.choices}
-                                renderItem={({ item }) => {
-                                  return  <View style={appStyles.league_radioDefault}>
-                                            <RadioButton value="second" color='white' uncheckedColor='#777' disabled/>
-                                            <Text>{item.title}</Text>
-                                          </View>
-                                  }}>
+                                <FlatList 
+                                  keyExtractor={(marketItem, index) => {
+                                    return index.toString()
+                                  }} 
+                                  data={marketItem.choices}
+                                  renderItem={({ item }) => {
+                                    return  <View style={[appStyles.league_radio, marketItem.outcome === item.id ? appStyles.league_radioOutcome : appStyles.league_radioDefault] }>
+                                              <RadioButton value={item.id} status={ marketItem.outcome === item.id ? 'checked' : 'unchecked' } color='white' uncheckedColor='#777'/>
+                                              <Text style={[appStyles.league_radioText, marketItem.outcome === item.id ? appStyles.league_radioTextOutcome : null] }>{item.title}</Text>
+                                            </View>
+                                }}>
                                 </FlatList>
                               </RadioButton.Group>
                             </View>
@@ -93,6 +107,9 @@ export default function ResultsScreen({ navigation }: any) {
 
 
           </View>
+        }}>
+        </FlatList>
+       
 
     </ScrollView>
   );

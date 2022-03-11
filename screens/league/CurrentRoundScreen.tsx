@@ -2,9 +2,12 @@ import React from 'react';
 import { ScrollView, StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 import { LinearGradient } from "expo-linear-gradient";
+import * as WebBrowser from 'expo-web-browser';
 
 import LeagueBannerComponent from './LeagueBannerComponent';
 import appStyles from '../../styles/appStyles.style';
+
+
 
 export default function CurrentRoundScreen({ navigation }: any) {
   const [value, setValue] = React.useState('first');
@@ -27,7 +30,7 @@ export default function CurrentRoundScreen({ navigation }: any) {
                 <Text style={appStyles.league_button__text}>Become a Patron</Text>
               </View>
 
-              <TouchableOpacity onPress={() => setShowRound(!showRound)}>
+              <TouchableOpacity onPress={() => WebBrowser.openBrowserAsync('https://www.patreon.com/oauth2/authorize?client_id=qssBP2Mh_-ejwfHljnEx_Cno5-Va_ckjojfS6Qwf3pq9Y4UN_hzI5Ku-8O6NJIyR&state=None&response_type=code&amt=0.01&redirect_uri=https%3A%2F%2Fleague.wrestletalk.com%2Fconnect%2Fcheck&scope=identity+identity%5Bemail%5D')}>
                 <View style={[appStyles.league_button, appStyles.league_button__login]}>
                   <Text style={appStyles.league_button__text}>Login with Patreon</Text>
                 </View>

@@ -7,7 +7,7 @@ import appStyles from '../../styles/appStyles.style';
 import leagueApi from '../../api/leagueApi';
 
 export default function StandingsScreen({ navigation }: any) {
-  const seasonId = '143eb23a-d354-4386-a1b8-2d102490683d';
+  const seasonId = '4d06fcee-d322-4373-b9b8-91dbc2b7bd88';
   const [standings, setStandings] = useState<any>([])
   
   useEffect(() => {

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let sessionId = '5aisll2gbocnbj9ssok3plalrj';
+let sessionId = 'ooequ0hnm3b6i1o52c96t41ac5';
 
 export default axios.create({
   baseURL: 'https://wrestleleague.clientstage.dev/api',

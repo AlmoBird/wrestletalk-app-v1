@@ -3,6 +3,7 @@ import { ScrollView, StyleSheet, View, Text, FlatList, TouchableOpacity } from '
 import { RadioButton } from 'react-native-paper';
 import { LinearGradient } from "expo-linear-gradient";
 import * as WebBrowser from 'expo-web-browser';
+import * as Linking from 'expo-linking';
 
 import LeagueBannerComponent from './LeagueBannerComponent';
 import appStyles from '../../styles/appStyles.style';
@@ -11,13 +12,14 @@ import leagueApi from '../../api/leagueApi';
 
 export default function CurrentRoundScreen({ navigation }: any) {
   const [value, setValue] = React.useState('first');
-  const [showRound, setShowRound] = React.useState(true);
+  const [showRound, setShowRound] = React.useState(false);
   const [currentRound, setCurrentRound] = useState<any>([])
 
   useEffect(() => {
     getSeason();
   }, []);
 
+  
   const getSeason = async() => {
     const response = await leagueApi.get('/season/active')
     setCurrentRound(response.data.seasons[0].currentRound)  
@@ -77,7 +79,8 @@ export default function CurrentRoundScreen({ navigation }: any) {
             : 
             
               <View>
-                <Text>Sorry there is no round currently active</Text>
+                <Text style={[appStyles.title, appStyles.league_title]}>There is currently no next round scheduled.</Text>
+                <Text style={[appStyles.text, appStyles.league_title]}>Please come back soon.</Text>
               </View>
 
 
@@ -88,11 +91,20 @@ export default function CurrentRoundScreen({ navigation }: any) {
               <Text style={[appStyles.title, appStyles.league_title]}>Wrestle League</Text>
               <Text style={appStyles.league_info}>Login via Patreon to join the Wrestle League and go head-to-head with fellow patrons and the WrestleTalk team.</Text>
 
+              <TouchableOpacity onPress={() => { setShowRound(true) }}>
               <View style={[appStyles.league_button, appStyles.league_button__become]}>
                 <Text style={appStyles.league_button__text}>Become a Patron</Text>
               </View>
+              </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => WebBrowser.openBrowserAsync('https://www.patreon.com/oauth2/authorize?client_id=qssBP2Mh_-ejwfHljnEx_Cno5-Va_ckjojfS6Qwf3pq9Y4UN_hzI5Ku-8O6NJIyR&state=None&response_type=code&amt=0.01&redirect_uri=https%3A%2F%2Fleague.wrestletalk.com%2Fconnect%2Fcheck&scope=identity+identity%5Bemail%5D')}>
+              <TouchableOpacity onPress={() => {
+                  WebBrowser.maybeCompleteAuthSession({
+                    skipRedirectCheck: false
+                  })
+                  WebBrowser.openBrowserAsync('https://www.patreon.com/oauth2/authorize?client_id=qssBP2Mh_-ejwfHljnEx_Cno5-Va_ckjojfS6Qwf3pq9Y4UN_hzI5Ku-8O6NJIyR&state=None&response_type=code&amt=0.01&redirect_uri=https%3A%2F%2Fleague.wrestletalk.com%2Fconnect%2Fcheck&scope=identity+identity%5Bemail%5D', {
+                    toolbarColor: '#ED6850',
+                  })
+              }}>
                 <View style={[appStyles.league_button, appStyles.league_button__login]}>
                   <Text style={appStyles.league_button__text}>Login with Patreon</Text>
                 </View>
